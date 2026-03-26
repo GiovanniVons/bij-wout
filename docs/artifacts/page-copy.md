@@ -2,7 +2,7 @@
 **Phase:** 2
 **Agent:** copywriter
 **Date:** 2026-03-25
-**Status:** draft
+**Status:** approved (realigned 2026-03-26)
 
 ---
 
@@ -42,6 +42,8 @@ info@bijwout.nl
 **Social label:** Volg ons
 - Instagram: @bijwout
 - Facebook: Bij Wout
+- TripAdvisor: Bij Wout Moergestel
+- Untappd: Bij Wout
 
 **Copyright:** © 2026 Bij Wout. Alle rechten voorbehouden.
 
@@ -64,9 +66,14 @@ info@bijwout.nl
 **Secondary CTA:** Bekijk Menu -> /menu
 
 ### Section 2: Intro Strip
-**Body:** Geen fratsen, geen schuimrecepten, geen menukaart van twaalf pagina's. Gewoon goed eten. Dagvers, met producten die je kunt aanwijzen op de kaart van de regio. En een biertje erbij dat niet van de lopende band komt.
+**Body:** Een terras op het Sint Jansplein, een kort menu dat wisselt met het seizoen, en een bierkaart van brouwers die je bij naam kent. Meer hoeft het niet te zijn.
 
-### Section 3: Highlights (3 cards)
+### Section 3: VideoSection
+**Title attribute:** Bij Wout -- sfeerimpressie
+**Vimeo embed ID:** 938298685
+*(Video-only section, no text copy)*
+
+### Section 4: Highlights (3 cards)
 
 **Card 1: Lunch**
 **Label:** Lunch
@@ -86,17 +93,17 @@ info@bijwout.nl
 **Body:** Wisselende taps en specials van brouwerijen uit de buurt. Elke week iets anders, altijd met een verhaal.
 **CTA:** Bierkaart -> /menu#craft-bier
 
-### Section 4: Monday Special Callout
+### Section 5: Monday Special Callout
 **Headline:** Maandagavond. Drie gangen. €23,50.
 **Body:** Elke maandag serveert Wout een verrassingsmenu van drie gangen. Geen keuze, geen gedoe. Gewoon aan tafel schuiven en laten komen. Het enige dat je vooraf weet: het wordt goed.
 **CTA:** Meer over Maandagavond -> /maandagavond
 
-### Section 5: About Teaser
+### Section 6: About Teaser
 **Headline:** Wout en zijn plein
 **Body:** In april 2015 opende Wout Huijben de deuren op het Sint Jansplein. Geen masterplan, geen investeerders. Gewoon een kok die een plek wilde runnen waar hij zelf graag zou zitten. Dat is het nog steeds.
 **CTA:** Lees het verhaal -> /over-wout
 
-### Section 6: Social Proof
+### Section 7: Social Proof
 **Headline:** Wat de gasten zeggen
 **Review 1:**
 "Heerlijk gegeten, bediening top en mooie locatie op het plein. Zeker terugkomen!" -- Google Review
@@ -109,7 +116,7 @@ info@bijwout.nl
 
 **Stats line:** 9/10 op Google (588+ reviews) . #1 in Moergestel op TripAdvisor
 
-### Section 7: Reservation CTA Strip
+### Section 8: Reservation CTA Strip
 **Headline:** Tafel vrij?
 **Body:** Bel, boek online, of loop binnen. Op het plein is altijd plek. Behalve op dinsdag.
 **Primary CTA:** Reserveren -> /reserveren
@@ -125,39 +132,48 @@ info@bijwout.nl
 - **OG Description:** Lunch, diner, spareribs op donderdag en craft bier van lokale brouwers. Bekijk de volledige kaart.
 
 ### Section 1: Page Header
-**Headline:** Dit staat er op.
+**Headline:** De kaart
 **Sub-headline:** Geen verrassing-menukaart van tien pagina's. Wat je ziet is wat je krijgt, en het wisselt met de seizoenen.
 
-### Section 2: Lunch Section
+### Section 2: Wouts Favorietjes
+**Section label:** Wouts Favorietjes
+**Intro:** De klassieker van het huis. Kies er drie, kies er vijf, of bestel gewoon de hele kaart.
+
+*(Items sourced from menu-data.ts -- favorietjes export)*
+
+### Section 3: Lunch Section
 **Section label:** Lunch
+**CategoryHeader quote (Caveat accent):** "Broodjes, uitsmijters en verse soep"
 **Intro:** Warm en koud, licht en stevig. Onze lunch loopt van 11:00 tot sluitingstijd keuken. Neem je tijd.
 
-*(Menu items sourced from dossier -- developer uses transcribed menu data)*
+*(Menu items sourced from menu-data.ts)*
 
-### Section 3: Dinner Section
+### Section 4: Dinner Section
 **Section label:** Diner
+**CategoryHeader quote (Caveat accent):** "Van entrecote tot wisselgerecht"
 **Intro:** De avondkaart draait om smaak, niet om opmaak. Steaks van de grill, verse vis, en gerechten die wisselen wanneer het seizoen dat vraagt.
 
-### Section 4: Thursday Spareribs Callout
-**Headline:** Donderdag = Spareribs
-**Body:** Elke donderdag: spareribs met friet, mayo en salade. €16 per portie.
+### Section 5: SparerribsCallout
+**Overline:** Elke donderdag in maart
+**Headline:** Spareribs
+**Body:** Nog de hele maand maart kun je elke donderdag genieten van onze heerlijke spareribs. Inclusief friet, mayo en salade. Op = op!
 **CTA:** Reserveer donderdag -> /reserveren
 
-### Section 5: Wisselgerechten
+### Section 6: Wisselgerechten
 **Section label:** Wisselgerechten
 **Intro:** Seizoensgebonden gerechten die komen en gaan. Vraag naar wat er vandaag op het bord staat, of check onze socials.
 
-### Section 6: Craft Beer Section
+### Section 7: Craft Beer Section
 **Section label:** Craft Bier
 **Intro:** Geen Heineken-tap hier. Wij schenken bier van brouwers die je bij naam kent. Wisselende taps, vaste specials, en altijd iets dat je nog niet eerder hebt geproefd.
 **Philosophy line:** De brouwerijen zitten om de hoek. Letterlijk. Dat maakt het bier verser, de lijntjes korter, en het verhaal eerlijker.
 
-### Section 7: Menu CTA Strip
+### Section 8: Menu CTA Strip
 **Headline:** Honger gekregen?
 **Body:** Dat is het idee.
 **Primary CTA:** Reserveren -> /reserveren
 
-### Section 8: Dietary Note (microcopy)
+### Section 9: Dietary Note (microcopy)
 **Body:** Glutenvrij of lactosevrij eten? Dat kan. Vraag ernaar bij het bestellen. English menu available on request.
 
 ---
@@ -172,7 +188,7 @@ info@bijwout.nl
 
 ### Section 1: Hero
 **Headline:** Een kok, een plein, een plan.
-**Opening paragraph:** Wout Huijben is geen chef met een Michelinster en een mediatraining. Wout is een kok die graag kookt, graag praat, en ergens in 2015 dacht: ik ga het gewoon zelf doen. Hij vond een pand aan het Sint Jansplein in Moergestel. Klein genoeg om te overzien, groot genoeg om vol te krijgen. En dat is precies wat er gebeurde.
+**Opening paragraph:** Geen schuimrecepten. Geen push pass. Gewoon een kok die kookt wat er binnenkomt, en ergens in 2015 dacht: ik ga het zelf doen.
 
 ### Section 2: Philosophy & Ingredients
 **Headline:** Koken zonder omweg
@@ -182,19 +198,9 @@ info@bijwout.nl
 
 **Paragraph 3:** Het Sint Jansplein is de woonkamer van Moergestel. In de zomer vol terrassen, in de winter warm verlicht. Bij Wout is daar onderdeel van geworden, niet als horecabedrijf maar als buurman. De stamgasten kennen de kaart uit hun hoofd. De nieuwe gasten worden stamgast.
 
-### Section 3: Value Pillars (3 blocks)
+### Section 3: Owners Philosophy
 
-**Pillar 1:**
-**Label:** Vers
-**Body:** De kaart volgt de seizoenen, niet de leverancier. Wat vandaag binnenkomt, staat vanavond op het bord. Geen voorraadkast vol halffabricaten.
-
-**Pillar 2:**
-**Label:** Lokaal
-**Body:** Vlees, groente, bier -- het komt uit de buurt. Niet als marketingverhaal, maar als standaard. Korte lijnen, bekende gezichten.
-
-**Pillar 3:**
-**Label:** Eerlijk
-**Body:** Faire prijzen, ruime porties, geen verborgen kosten. Je betaalt voor eten, niet voor een concept. En je weet altijd wat je krijgt.
+**Body:** Bij Wout is van Wout Huijben en zijn partner. Geen franchise, geen investeerders, geen managementteam. Twee mensen die geloven dat een dorp een plek verdient waar je altijd welkom bent, het eten eerlijk is, en niemand op de klok kijkt.
 
 ### Section 4: CTA
 **Headline:** Zelf proeven
@@ -281,14 +287,23 @@ info@bijwout.nl
 **Headline:** Geen kaart, geen keuze.
 **Body:** Elke maandag kookt Wout een driegangenmenu met wat die dag het beste is. Je weet vooraf niet wat je krijgt, maar je weet wel dat het goed is. Het menu wisselt elke week. Soms vis, soms vlees, altijd seizoen.
 
-### Section 3: Practical Info (bullets)
+### Section 3: CurrentMenu
+Real course data sourced from menu-data.ts (mondayMenu export). Displays specific dish names per category:
+- **Voorgerechten** (starters)
+- **Hoofdgerechten** (mains)
+- **Nagerechten** (desserts)
+
+**Date:** current week's date (from data)
+**Price:** EUR 23,50
+
+### Section 4: Practical Info (bullets)
 - Elke maandag, deur open om 17:00
 - Drie gangen voor €23,50 p.p.
 - Reserveren aanbevolen (vol = vol)
 - Dieetwensen? Geef het door bij reservering
 - Vegetarische optie beschikbaar
 
-### Section 4: CTA
+### Section 5: CTA
 **Headline:** Volgende maandag erbij?
 **Primary CTA:** Reserveren -> /reserveren
 

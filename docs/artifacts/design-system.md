@@ -2,7 +2,7 @@
 **Phase:** 2
 **Agent:** UI Designer
 **Date:** 2026-03-25
-**Status:** draft
+**Status:** approved (realigned 2026-03-26)
 
 ---
 
@@ -49,8 +49,8 @@ All sizes reference Zone 2 tokens. Viewport range: 20rem (320px) to 90rem (1440p
 
 | Token | Min | Max | Font | Weight | Line Height | Letter Spacing |
 |-------|-----|-----|------|--------|-------------|----------------|
-| `--font-size-display` | 2.5rem | 3.5rem | Lora | `--font-weight-bold` | `--line-height-tight` (1.1) | `--letter-spacing-tight` (-0.02em) |
-| `--font-size-h1` | 2rem | 2.75rem | Lora | `--font-weight-bold` | `--line-height-tight` | `--letter-spacing-tight` |
+| `--font-size-display` | 2.75rem | 3.875rem | Lora | `--font-weight-bold` | `--line-height-tight` (1.1) | `--letter-spacing-tight` (-0.02em) |
+| `--font-size-h1` | 2.125rem | 3rem | Lora | `--font-weight-bold` | `--line-height-tight` | `--letter-spacing-tight` |
 | `--font-size-h2` | 1.5rem | 2rem | Lora | `--font-weight-semibold` | `--line-height-snug` (1.25) | `--letter-spacing-tight` |
 | `--font-size-h3` | 1.25rem | 1.5rem | Lora | `--font-weight-semibold` | `--line-height-snug` | `--letter-spacing-normal` (0) |
 | `--font-size-h4` | 0.875rem | 1rem | Source Serif 4 | `--font-weight-semibold` | `--line-height-normal` (1.5) | `--letter-spacing-widest` (0.14em), uppercase |
@@ -83,77 +83,67 @@ Opt-in classes defined in Zone 5 of tokens.css (unlayered, override @layer base)
 
 Computed for every text-on-background combination. AA Normal requires 4.5:1, AA Large requires 3.0:1, AAA requires 7.0:1.
 
-**On Kalk (#F5F0E8) -- base theme background:**
+**On Kalk (#FFFFFF) -- base theme background:**
 
 | Text Color | Ratio | AA Normal | AA Large | AAA |
 |-----------|-------|-----------|----------|-----|
-| Eik (#2C2416) | 11.78:1 | PASS | PASS | PASS |
-| Woud (#2D4A3E) | 7.59:1 | PASS | PASS | PASS |
-| Koper-dark (#8B5A27) | 4.80:1 | PASS | PASS | FAIL |
-| Roest (#A63D2F) | 5.01:1 | PASS | PASS | FAIL |
-| Leisteen (#5C5C52) | 4.34:1 | FAIL | PASS | FAIL |
-| Koper (#B87333) | 3.17:1 | FAIL | PASS | FAIL |
-| Hop (#6B8F71) | 3.10:1 | FAIL | PASS | FAIL |
-| Tarwe (#E8D5A3) | 1.29:1 | FAIL | FAIL | FAIL |
+| Eik (#080A0B) | 20.9:1 | PASS | PASS | PASS |
+| Woud (#24323E) | 12.5:1 | PASS | PASS | PASS |
+| Leisteen (#566878) | 5.6:1 | PASS | PASS | FAIL |
+| Koper (#C8AE79) | 3.0:1 | FAIL | PASS | FAIL |
+| Tarwe (#F5F0E8) | 1.13:1 | FAIL | FAIL | FAIL |
 
-**On Woud (#2D4A3E) -- dark theme background:**
+**On Woud (#24323E) -- dark theme background:**
 
 | Text Color | Ratio | AA Normal | AA Large | AAA |
 |-----------|-------|-----------|----------|-----|
-| Kalk (#F5F0E8) | 7.59:1 | PASS | PASS | PASS |
-| Tarwe (#E8D5A3) | 5.88:1 | PASS | PASS | FAIL |
-| Hop (#6B8F71) | 2.45:1 | FAIL | FAIL | FAIL |
-| Koper (#B87333) | 2.40:1 | FAIL | FAIL | FAIL |
+| Kalk (#FFFFFF) | 12.5:1 | PASS | PASS | PASS |
+| Tarwe (#F5F0E8) | 10.8:1 | PASS | PASS | PASS |
+| Koper (#C8AE79) | 5.1:1 | PASS | PASS | FAIL |
 
-**On Eik (#2C2416) -- brand theme background:**
-
-| Text Color | Ratio | AA Normal | AA Large | AAA |
-|-----------|-------|-----------|----------|-----|
-| Kalk (#F5F0E8) | 11.78:1 | PASS | PASS | PASS |
-| Tarwe (#E8D5A3) | 9.14:1 | PASS | PASS | PASS |
-| Hop (#6B8F71) | 3.80:1 | FAIL | PASS | FAIL |
-| Koper (#B87333) | 3.72:1 | FAIL | PASS | FAIL |
-
-**On Tarwe (#E8D5A3) -- warm theme background:**
+**On Eik (#080A0B) -- brand theme background:**
 
 | Text Color | Ratio | AA Normal | AA Large | AAA |
 |-----------|-------|-----------|----------|-----|
-| Eik (#2C2416) | 9.14:1 | PASS | PASS | PASS |
-| Woud (#2D4A3E) | 5.88:1 | PASS | PASS | FAIL |
-| Roest (#A63D2F) | 3.89:1 | FAIL | PASS | FAIL |
-| Koper-dark (#8B5A27) | 3.72:1 | FAIL | PASS | FAIL |
-| Leisteen (#5C5C52) | 3.36:1 | FAIL | PASS | FAIL |
-| Koper (#B87333) | 2.46:1 | FAIL | FAIL | FAIL |
+| Kalk (#FFFFFF) | 20.9:1 | PASS | PASS | PASS |
+| Tarwe (#F5F0E8) | 18.0:1 | PASS | PASS | PASS |
+| Koper (#C8AE79) | 8.5:1 | PASS | PASS | PASS |
+
+**On Tarwe (#F5F0E8) -- warm theme background:**
+
+| Text Color | Ratio | AA Normal | AA Large | AAA |
+|-----------|-------|-----------|----------|-----|
+| Eik (#080A0B) | 18.0:1 | PASS | PASS | PASS |
+| Woud (#24323E) | 10.8:1 | PASS | PASS | PASS |
+| Leisteen (#566878) | 4.8:1 | PASS | PASS | FAIL |
+| Koper (#C8AE79) | 2.6:1 | FAIL | FAIL | FAIL |
 
 ### Color Usage Rules
 
 | Color | Safe for text on... | Decorative only on... |
 |-------|--------------------|-----------------------|
-| Eik | Kalk, Tarwe (all sizes) | -- |
-| Kalk | Woud, Eik (all sizes) | Tarwe |
+| Eik | Kalk, Tarwe, Woud (all sizes) | -- |
+| Kalk | Woud, Eik (all sizes) | -- |
 | Woud | Kalk, Tarwe (all sizes) | Eik |
-| Koper | -- (fails AA normal everywhere) | All backgrounds (borders, icons, decorative) |
-| Koper-dark | Kalk (all sizes), Tarwe (large only) | Woud, Eik |
-| Leisteen | Kalk (large text only, 4.34:1) | Woud, Eik, Tarwe |
+| Koper | Eik (all sizes, 8.5:1), Woud (all sizes, 5.1:1) | Kalk (3.0:1, large text only), Tarwe |
+| Leisteen | Kalk (all sizes, 5.6:1), Tarwe (all sizes, 4.8:1) | Woud, Eik |
 | Tarwe | Woud, Eik (all sizes) | Kalk |
-| Hop | -- (fails AA normal everywhere) | All backgrounds (badges, icons) |
-| Roest | Kalk (all sizes) | Tarwe (large only) |
 
 **Key accessibility notes:**
-- **Leisteen on Kalk (4.34:1):** Fails AA Normal by 0.16. Use Leisteen only for large text (18px+ regular or 14px+ bold) on light backgrounds. For body-sm and caption text, use Eik instead.
-- **Koper on any background:** Never use raw Koper for text. Use `--color-koper-dark` (#8B5A27) which passes AA Normal on Kalk (4.80:1).
-- **Koper as button background:** Kalk text on Koper = 3.17:1 (passes AA Large only). Acceptable for buttons since button text is always bold and min 14px, but document this exception.
+- **Koper on dark backgrounds:** Koper (#C8AE79) passes AA Normal on both Eik (8.5:1) and Woud (5.1:1). Safe for body text on dark themes.
+- **Koper on Kalk (3.0:1):** Fails AA Normal. Use only for large text (18px+ regular or 14px+ bold) or decorative elements on light backgrounds.
+- **Leisteen on Kalk (5.6:1):** Passes AA Normal. Safe for secondary body text and captions on light backgrounds.
 
 ### Opacity-Blended Contrast Verification
 
 | Blend | Effective Color | On Background | Ratio | AA Normal |
 |-------|-----------------|---------------|-------|-----------|
-| Kalk o80 on Woud | #c9c4b9 | Woud | 5.64:1 | PASS |
-| Kalk o65 on Woud | ~#b0ab9f | Woud | ~4.7:1 | PASS (borderline) |
-| Kalk o50 on Woud | ~#919391 | Woud | ~3.4:1 | FAIL |
-| Eik o80 on Kalk | #584e3d | Kalk | 7.62:1 | PASS |
-| Eik o60 on Kalk | #84785f | Kalk | 4.60:1 | PASS |
-| Eik o40 on Kalk | #b0a381 | Kalk | 2.67:1 | FAIL |
+| Kalk o80 on Woud | ~#cdd1d8 | Woud (#24323E) | ~7.5:1 | PASS |
+| Kalk o65 on Woud | ~#b0b5bd | Woud (#24323E) | ~5.6:1 | PASS |
+| Kalk o50 on Woud | ~#92999f | Woud (#24323E) | ~4.0:1 | FAIL |
+| Eik o80 on Kalk | ~#353537 | Kalk (#FFFFFF) | ~12.5:1 | PASS |
+| Eik o60 on Kalk | ~#696a6b | Kalk (#FFFFFF) | ~6.2:1 | PASS |
+| Eik o40 on Kalk | ~#9c9d9e | Kalk (#FFFFFF) | ~3.5:1 | FAIL |
 
 **Opacity safety thresholds:**
 - Kalk text on dark backgrounds: minimum o65 for body, o80 for captions
@@ -214,15 +204,15 @@ Token references map to a 4px base unit:
 
 ### Radius Philosophy: Subtle (2-6px)
 
-The Village Hearth aesthetic uses barely-rounded corners. Nothing pill-shaped, nothing sharp-modern.
+The Village Hearth aesthetic uses barely-rounded corners. Pill shapes reserved for small interactive indicators (badges, nav pills). Nothing sharp-modern.
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--radius-none` | 0 | Menu cards (Polaroid style), chalkboard sections |
+| `--radius-none` | 0 | Chalkboard sections, sharp-edge elements |
 | `--radius-sm` | 2px | Buttons, form inputs, beer cards, value cards |
 | `--radius-md` | 4px | Hero images, portrait photos, group option cards |
 | `--radius-lg` | 6px | GuestPlan container, large image treatments |
-| `--radius-pill` | 9999px | Price badge only |
+| `--radius-pill` | 9999px | Price badge, StickyJumpLinks active state |
 | `--radius-full` | 50% | Price badge circle |
 
 ### Shadow Scale
@@ -265,25 +255,25 @@ All shadows use `color-mix()` based eik opacity tokens. No `rgba()`.
 
 | Property | Primary | Secondary | Tertiary |
 |----------|---------|-----------|----------|
-| **Default bg** | Woud (#2D4A3E) | transparent | transparent |
-| **Default text** | Kalk (#F5F0E8) | Woud (#2D4A3E) | Koper-dark (#8B5A27) |
+| **Default bg** | Woud (#24323E) | transparent | transparent |
+| **Default text** | Kalk (#FFFFFF) | Woud (#24323E) | Leisteen (#566878) |
 | **Default border** | Woud | Woud | transparent |
-| **Contrast** | **7.59:1 PASS** | n/a (text on Kalk) **7.59:1 PASS** | **4.80:1 PASS** |
-| **Hover bg** | Woud-dark (#1E332A) | Woud (#2D4A3E) | Koper-o8 |
-| **Hover text** | Kalk | Kalk | Koper (#B87333) |
-| **Hover contrast** | **8.9:1 PASS** | **7.59:1 PASS** | 3.17:1 (decorative, large text) |
-| **Active bg** | Woud-darker (#152420) | Woud-dark | Koper-o8 |
+| **Contrast** | **12.5:1 PASS** | n/a (text on Kalk) **12.5:1 PASS** | **5.6:1 PASS** |
+| **Hover bg** | Woud-dark | Woud (#24323E) | Koper-o8 |
+| **Hover text** | Kalk | Kalk | Koper (#C8AE79) |
+| **Hover contrast** | **13.5:1 PASS** | **12.5:1 PASS** | 3.0:1 (decorative, large text) |
+| **Active bg** | Woud-darker | Woud-dark | Koper-o8 |
 | **Disabled** | Woud-o35 bg / Kalk-o50 text | transparent / Woud-o35 text+border | transparent / Eik-o25 text |
 
 #### Dark Theme (Woud background)
 
 | Property | Primary | Secondary | Tertiary |
 |----------|---------|-----------|----------|
-| **Default bg** | Kalk (#F5F0E8) | transparent | transparent |
-| **Default text** | Woud (#2D4A3E) | Kalk (#F5F0E8) | Tarwe (#E8D5A3) |
+| **Default bg** | Kalk (#FFFFFF) | transparent | transparent |
+| **Default text** | Woud (#24323E) | Kalk (#FFFFFF) | Tarwe (#F5F0E8) |
 | **Default border** | Kalk | Kalk | transparent |
-| **Contrast** | **7.59:1 PASS** | n/a (text on Woud) **7.59:1 PASS** | **5.88:1 PASS** |
-| **Hover bg** | White | Kalk (#F5F0E8) | Kalk-o10 |
+| **Contrast** | **12.5:1 PASS** | n/a (text on Woud) **12.5:1 PASS** | **10.8:1 PASS** |
+| **Hover bg** | White | Kalk (#FFFFFF) | Kalk-o10 |
 | **Hover text** | Woud-dark | Woud | Kalk |
 | **Active bg** | Tarwe | Tarwe | Kalk-o10 |
 
@@ -294,7 +284,7 @@ All shadows use `color-mix()` based eik opacity tokens. No `rgba()`.
 | **Default bg** | Kalk | transparent | transparent |
 | **Default text** | Eik | Kalk | Tarwe |
 | **Default border** | Kalk | Kalk | transparent |
-| **Contrast** | **11.78:1 PASS** | n/a **11.78:1 PASS** | **9.14:1 PASS** |
+| **Contrast** | **20.9:1 PASS** | n/a **20.9:1 PASS** | **18.0:1 PASS** |
 | **Hover bg** | White | Kalk | Kalk-o10 |
 | **Hover text** | Eik | Eik | Kalk |
 
@@ -303,9 +293,9 @@ All shadows use `color-mix()` based eik opacity tokens. No `rgba()`.
 | Property | Primary | Secondary | Tertiary |
 |----------|---------|-----------|----------|
 | **Default bg** | Woud | transparent | transparent |
-| **Default text** | Kalk | Woud | Koper-dark |
+| **Default text** | Kalk | Woud | Leisteen |
 | **Default border** | Woud | Woud | transparent |
-| **Contrast** | **7.59:1 PASS** | n/a **5.88:1 PASS** | **3.72:1 AA-large** |
+| **Contrast** | **10.8:1 PASS** | n/a **10.8:1 PASS** | **4.8:1 PASS** |
 | **Hover bg** | Woud-dark | Woud | Koper-o8 |
 | **Hover text** | Kalk | Kalk | Koper |
 
@@ -340,22 +330,23 @@ All shadows use `color-mix()` based eik opacity tokens. No `rgba()`.
 
 ## 8. Cards
 
-### Menu Highlight Card (Polaroid)
+### Menu Highlight Card (Image Overlay)
 
-Used on Home for menu preview. Three cards with individual tilt angles.
+Used on Home for menu preview. Food photography with gradient text overlay.
 
 | Property | Token |
 |----------|-------|
-| Background | `var(--card-menu-highlight-bg)` (transparent) |
-| Border | `var(--border-width-thin)` solid `var(--card-menu-highlight-border)` |
-| Radius | `var(--card-menu-highlight-radius)` (none -- sharp Polaroid) |
-| Padding | `var(--card-menu-highlight-padding)` |
+| Radius | `var(--card-menu-highlight-radius)` (md) |
 | Shadow | `var(--shadow-sm)` |
 | Label font | `var(--card-menu-highlight-label-font)` (Caveat) |
 | Label color | `var(--card-menu-highlight-label-color)` (Koper) |
+| Title color | Kalk, `var(--font-weight-semibold)` |
+| Description color | Kalk o80 |
 
-- Image: 4:5 portrait, sharp corners inside card frame.
-- Hover: card straightens to 0deg rotation, 200ms ease.
+- Image: food photo fills card, gradient overlay from bottom (eik-o75 to transparent).
+- Text overlay at bottom: Caveat label (koper), title (kalk, semibold), description (kalk-o80).
+- Hover: image scales 1.04, shadow-lg appears, 250ms ease.
+- No tilt rotation, no Polaroid styling.
 - Mobile: horizontal scroll carousel, 280px card width.
 
 ### Group Option Card
@@ -373,6 +364,82 @@ Used on Groepen page for event types.
 - Hover: `translateY(-2px)`, shadow to `var(--shadow-md)`, border to `var(--card-group-hover-border)`, 250ms ease.
 - Asymmetric padding-top on alternating cards creates staggered grid.
 
+### StickyJumpLinks
+
+Sticky navigation bar for the menu page. Warm theme (Tarwe background).
+
+| Property | Value |
+|----------|-------|
+| Theme | warm (Tarwe background) |
+| Position | `position: sticky`, `top: var(--header-height)`, `z-index: 40` |
+| Link font | Source Serif 4, `var(--font-size-body-sm)`, `var(--font-weight-semibold)` |
+| Link color | `var(--color-text-secondary)` |
+| Active state | Pill background: Koper o20, `var(--radius-pill)`, `var(--color-koper)` text |
+| Hover | `var(--color-heading)` |
+| Separators | None (removed) |
+| Transition | color 200ms ease, background 200ms ease |
+
+- Scroll-spy highlights the link matching the currently visible menu section.
+- Mobile: horizontal scroll, `overflow-x: auto`, `white-space: nowrap`.
+
+### BeerTapCard
+
+Dark-theme card variant for featured tap beers on the menu page.
+
+| Property | Value |
+|----------|-------|
+| Background | Kalk o8 |
+| Border | `var(--border-width-thin)` solid Kalk o15 |
+| Radius | `var(--radius-md)` |
+| Image | 3:2 aspect ratio on top |
+| Brewery | `var(--font-size-caption)`, Koper, uppercase |
+| Name | `var(--font-size-body-lg)`, Kalk, `var(--font-weight-semibold)` |
+| Style + ABV | `var(--font-size-caption)`, Kalk o65 |
+| Price | `var(--font-size-body)`, Kalk, `var(--font-weight-semibold)` |
+
+- Padding below image for text content.
+- Used inside BeerSection (dark theme).
+
+### CategoryHeader
+
+Warm-theme 2-column section used for Lunch and Diner introductions on the menu page.
+
+| Property | Value |
+|----------|-------|
+| Theme | warm (Tarwe background) |
+| Layout | 2-column: image left, text right |
+| Image | 3:2 aspect ratio, `var(--radius-md)` |
+| Heading | h2, preceded by CopperRule |
+| Quote | Caveat italic, `var(--color-text-secondary)` |
+| Container | `var(--container-default)` |
+
+### SparerribsCallout
+
+Brand-theme 2-column promotional section for the Thursday spareribs special.
+
+| Property | Value |
+|----------|-------|
+| Theme | brand (Eik background), full-width |
+| Layout | 2-column: text left, promo image right |
+| Overline | `var(--font-size-caption)`, Koper, uppercase |
+| Heading | h2, Kalk |
+| Body | Tarwe |
+| CTA | Primary button |
+| Image | `var(--radius-md)` |
+
+### VideoEmbed
+
+Utility pattern for responsive video embedding (used on home page between IntroStrip and MenuPreview).
+
+| Property | Value |
+|----------|-------|
+| Aspect ratio | 16:9 (`aspect-ratio: 16/9`) |
+| Max width | 56rem |
+| Centering | `margin-inline: auto` |
+| Radius | `var(--radius-md)` |
+| Iframe | Vimeo, fills container via absolute positioning |
+| Animation | Wrapped in ScrollReveal |
+
 ---
 
 ## 9. Section Containers
@@ -381,10 +448,10 @@ Used on Groepen page for event types.
 
 | Theme | Background | Text | Heading | Accent | Typical Sections |
 |-------|------------|------|---------|--------|-----------------|
-| base | Kalk | Eik | Eik | Koper | Heroes, general content, forms |
-| dark | Woud | Kalk | Kalk | Koper | Menu chalkboard, CTA strips, philosophy values |
-| brand | Eik | Kalk | Kalk | Koper | Menu hero banner, footer |
-| warm | Tarwe | Eik | Eik | Koper | Monday callout, pricing strips, sourcing, contact |
+| base | Kalk (#FFFFFF) | Eik (#080A0B) | Eik | Koper (#C8AE79) | Heroes, general content, forms, DietaryLegend |
+| dark | Woud (#24323E) | Kalk (#FFFFFF) | Kalk | Koper | Wisselgerechten, BeerSection, CTA strips, philosophy values |
+| brand | Eik (#080A0B) | Kalk (#FFFFFF) | Kalk | Koper | MenuHero, SparerribsCallout, footer |
+| warm | Tarwe (#F5F0E8) | Eik (#080A0B) | Eik | Koper | StickyJumpLinks, Favorietjes, CategoryHeaders, MenuSections, Kinderen, Monday callout, pricing, sourcing, contact |
 
 All theme switching via `data-theme` attribute on section containers. Semantic color tokens (`--color-bg`, `--color-text`, `--color-heading`, etc.) cascade automatically.
 
@@ -482,6 +549,8 @@ A decorative horizontal line used under section headings (menu, Monday menu).
 
 Layout: CSS Grid `2fr 1fr 1fr` on desktop. Single column center-aligned on mobile. Colophon bar with top border divider.
 
+**Social icons:** 4 platforms -- Instagram, Facebook, TripAdvisor, Untappd. Icon color: `var(--footer-text)` (Tarwe), hover: `var(--footer-link-hover)` (Koper).
+
 ---
 
 ## 14. Animation System
@@ -538,13 +607,15 @@ Layout: CSS Grid `2fr 1fr 1fr` on desktop. Single column center-aligned on mobil
 
 Each section gets a `data-theme` attribute. Semantic tokens cascade automatically.
 
-**Base theme sections:** Heroes (Home, Over Wout, Groepen, Reserveren), general content, forms, FAQ.
+**Base theme sections:** Heroes (Home, Over Wout, Groepen, Reserveren), general content, forms, FAQ, DietaryLegend.
 
-**Dark theme sections:** Menu chalkboard (Lunch, Diner, Kinderen, Wisselbieren), CTA strips, philosophy values.
+**Dark theme sections:** Wisselgerechten, BeerSection, CTA strips, philosophy values.
 
-**Brand theme sections:** Menu hero banner, footer.
+**Brand theme sections:** MenuHero, SparerribsCallout, footer.
 
-**Warm theme sections:** Monday callout, pricing strips, sourcing strip, contact details.
+**Warm theme sections:** StickyJumpLinks, Favorietjes, Lunch CategoryHeader, Lunch MenuSection, Diner CategoryHeader, Diner MenuSection, Kinderen, Monday callout, pricing strips, sourcing strip, contact details.
+
+**Menu page theme flow:** MenuHero (brand) > StickyJumpLinks (warm) > Favorietjes (warm) > Lunch CategoryHeader (warm) > Lunch MenuSection (warm) > Wisselgerechten (dark) > Diner CategoryHeader (warm) > Diner MenuSection (warm) > SparerribsCallout (brand) > Kinderen (warm) > BeerSection (dark) > DietaryLegend (base) > CTA Strip (dark).
 
 **Rule:** Never stack more than 3 consecutive sections of the same theme without a visual break (different theme section or decorative element).
 
@@ -560,6 +631,7 @@ All component-level tokens are defined in Zone 3b of tokens.css. These bridge th
 | Mobile overlay | `--mobile-overlay-*` | 5 tokens |
 | Menu highlight card | `--card-menu-highlight-*` | 7 tokens |
 | Group option card | `--card-group-*` | 6 tokens |
+| Beer tap card | `--card-beer-tap-*` | 5 tokens |
 | Form inputs | `--input-*` | 11 tokens |
 | Accordion | `--accordion-*` | 12 tokens |
 | Footer | `--footer-*` | 8 tokens |
@@ -570,5 +642,6 @@ All component-level tokens are defined in Zone 3b of tokens.css. These bridge th
 | Hero overlay | `--hero-overlay-*` | 2 tokens |
 | GuestPlan widget | `--guestplan-*` | 5 tokens |
 | Star rating | `--star-*` | 3 tokens |
+| Sticky jump links | `--jump-links-*` | 4 tokens |
 
 These tokens enable theme-independent component styling. A card component references `var(--card-group-bg)` regardless of which theme mode it sits in.

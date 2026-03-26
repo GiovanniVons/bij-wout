@@ -1,0 +1,798 @@
+/* ==========================================================================
+   Bij Wout -- Design Tokens
+   Neighborhood Brasserie, Moergestel, Netherlands
+   Generated: 2026-03-25
+   Template: tokens.css v2.0 (8-zone architecture)
+
+   Zone Map:
+   1   Color Primitives + Typography Primitives + Spacing Primitives
+   1b  Opacity Variants (color-mix) + Shadow Bases
+   2   Fluid Type Scale + Fluid Spacing Scale
+   3   Semantic Theme Tokens (4 modes: base, dark, brand, warm)
+   3b  Component Bridge Tokens
+   4   Button Variant Tokens (per theme)
+   5   Text Style Rules + Utility Classes
+
+   Fluid clamp formula (viewport 20rem -- 90rem, range = 70rem):
+     slope = (MAX - MIN) / 70
+     intercept = MIN - slope * 20
+     clamp(MIN, calc(intercept + slope * 100vw), MAX)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   ZONE 1 -- Primitives
+   Raw values. Never referenced directly in components.
+   ========================================================================== */
+
+:root {
+  /* --- 1a: Color Primitives --- */
+  /* Aligned to Bij Wout's branding: #080A0B (black), #FFFFFF (white), #C8AE79 (gold), #24323E (dark blue) */
+  --color-eik:             #080A0B;
+  --color-kalk:            #FFFFFF;
+  --color-woud:            #24323E;
+  --color-koper:           #C8AE79;
+  --color-leisteen:        #566878;
+  --color-tarwe:           #F5F0E8;
+  --color-hop:             #6B8F71;
+  --color-roest:           #A63D2F;
+  --color-white:           #FFFFFF;
+  --color-black:           #080A0B;
+
+  /* Derived primitives */
+  --color-koper-dark:      #24323E;
+  --color-woud-dark:       #1A242D;
+  --color-woud-darker:     #121A21;
+  --color-leisteen-dark:   #3E505C;
+
+  /* --- 1a: Typography Primitives --- */
+  --font-display:          'Lora', Georgia, 'Times New Roman', serif;
+  --font-body:             'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-accent:           'Caveat', cursive;
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:     1.1;
+  --line-height-snug:      1.25;
+  --line-height-normal:    1.5;
+  --line-height-relaxed:   1.65;
+  --line-height-loose:     1.8;
+
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide:   0.04em;
+  --letter-spacing-wider:  0.08em;
+  --letter-spacing-widest: 0.14em;
+
+  /* --- 1a: Radius Primitives --- */
+  --radius-none:           0;
+  --radius-sm:             2px;
+  --radius-md:             4px;
+  --radius-lg:             6px;
+  --radius-pill:           9999px;
+  --radius-full:           50%;
+
+  /* --- 1a: Border Width Primitives --- */
+  --border-width-thin:     1px;
+  --border-width-medium:   2px;
+  --border-width-thick:    3px;
+  --border-width-accent:   4px;
+
+  /* --- 1a: Focus Ring --- */
+  --focus-ring-style:      solid;
+}
+
+
+/* ==========================================================================
+   ZONE 1b -- Opacity Variants + Shadow Bases
+   All opacity via color-mix(). rgba() is banned.
+   Naming: --color-{primitive}-o{percent}
+   ========================================================================== */
+
+:root {
+  /* --- Eik opacity variants --- */
+  --color-eik-o8:          color-mix(in srgb, var(--color-eik) 8%, transparent);
+  --color-eik-o10:         color-mix(in srgb, var(--color-eik) 10%, transparent);
+  --color-eik-o12:         color-mix(in srgb, var(--color-eik) 12%, transparent);
+  --color-eik-o15:         color-mix(in srgb, var(--color-eik) 15%, transparent);
+  --color-eik-o20:         color-mix(in srgb, var(--color-eik) 20%, transparent);
+  --color-eik-o25:         color-mix(in srgb, var(--color-eik) 25%, transparent);
+  --color-eik-o35:         color-mix(in srgb, var(--color-eik) 35%, transparent);
+  --color-eik-o40:         color-mix(in srgb, var(--color-eik) 40%, transparent);
+  --color-eik-o75:         color-mix(in srgb, var(--color-eik) 75%, transparent);
+
+  /* --- Kalk opacity variants --- */
+  --color-kalk-o8:         color-mix(in srgb, var(--color-kalk) 8%, transparent);
+  --color-kalk-o10:        color-mix(in srgb, var(--color-kalk) 10%, transparent);
+  --color-kalk-o15:        color-mix(in srgb, var(--color-kalk) 15%, transparent);
+  --color-kalk-o40:        color-mix(in srgb, var(--color-kalk) 40%, transparent);
+  --color-kalk-o50:        color-mix(in srgb, var(--color-kalk) 50%, transparent);
+  --color-kalk-o65:        color-mix(in srgb, var(--color-kalk) 65%, transparent);
+  --color-kalk-o80:        color-mix(in srgb, var(--color-kalk) 80%, transparent);
+
+  /* --- Woud opacity variants --- */
+  --color-woud-o15:        color-mix(in srgb, var(--color-woud) 15%, transparent);
+  --color-woud-o35:        color-mix(in srgb, var(--color-woud) 35%, transparent);
+
+  /* --- Koper opacity variants --- */
+  --color-koper-o8:        color-mix(in srgb, var(--color-koper) 8%, transparent);
+  --color-koper-o20:       color-mix(in srgb, var(--color-koper) 20%, transparent);
+  --color-koper-o30:       color-mix(in srgb, var(--color-koper) 30%, transparent);
+  --color-koper-o40:       color-mix(in srgb, var(--color-koper) 40%, transparent);
+  --color-koper-o50:       color-mix(in srgb, var(--color-koper) 50%, transparent);
+
+  /* --- Tarwe opacity variants --- */
+  --color-tarwe-o25:       color-mix(in srgb, var(--color-tarwe) 25%, transparent);
+  --color-tarwe-o30:       color-mix(in srgb, var(--color-tarwe) 30%, transparent);
+  --color-tarwe-o40:       color-mix(in srgb, var(--color-tarwe) 40%, transparent);
+
+  /* --- Leisteen opacity variants --- */
+  --color-leisteen-o60:    color-mix(in srgb, var(--color-leisteen) 60%, transparent);
+
+  /* --- Roest opacity variants --- */
+  --color-roest-o12:       color-mix(in srgb, var(--color-roest) 12%, transparent);
+
+  /* --- Hop opacity variants --- */
+  --color-hop-o15:         color-mix(in srgb, var(--color-hop) 15%, transparent);
+
+  /* --- Shadow Bases --- */
+  --shadow-color-sm:       var(--color-eik-o8);
+  --shadow-color-md:       var(--color-eik-o12);
+  --shadow-color-lg:       var(--color-eik-o20);
+  --shadow-color-xl:       var(--color-eik-o25);
+
+  --shadow-sm:             0 1px 2px var(--shadow-color-sm);
+  --shadow-md:             0 2px 8px var(--shadow-color-md), 0 1px 2px var(--shadow-color-sm);
+  --shadow-lg:             0 4px 16px var(--shadow-color-lg), 0 2px 4px var(--shadow-color-sm);
+  --shadow-xl:             0 8px 32px var(--shadow-color-xl), 0 4px 8px var(--shadow-color-md);
+}
+
+
+/* ==========================================================================
+   ZONE 2 -- Fluid Scale
+   Viewport range: 20rem (320px) to 90rem (1440px), span = 70rem
+   Formula: slope = (MAX - MIN) / 70, intercept = MIN - slope * 20
+   ========================================================================== */
+
+:root {
+  /* --- Fluid Font Sizes --- */
+  --font-size-display:     clamp(2.75rem, calc(2.4286rem + 1.6071vw), 3.875rem);
+  --font-size-h1:          clamp(2.125rem, calc(1.875rem + 1.25vw), 3rem);
+  --font-size-h2:          clamp(1.5rem, calc(1.3571rem + 0.7143vw), 2rem);
+  --font-size-h3:          clamp(1.25rem, calc(1.1786rem + 0.3571vw), 1.5rem);
+  --font-size-h4:          clamp(0.875rem, calc(0.8393rem + 0.1786vw), 1rem);
+  --font-size-body-lg:     clamp(1.125rem, calc(1.0893rem + 0.1786vw), 1.25rem);
+  --font-size-body:        1rem;
+  --font-size-body-sm:     0.875rem;
+  --font-size-caption:     0.75rem;
+  --font-size-accent:      clamp(1.25rem, calc(1.1786rem + 0.3571vw), 1.5rem);
+  --font-size-accent-lg:   clamp(1.5rem, calc(1.3571rem + 0.7143vw), 2rem);
+
+  /* --- Static Spacing (4px base) --- */
+  --space-1:               0.25rem;
+  --space-2:               0.5rem;
+  --space-3:               0.75rem;
+  --space-4:               1rem;
+  --space-5:               1.25rem;
+  --space-6:               1.5rem;
+  --space-7:               2rem;
+  --space-8:               3rem;
+  --space-9:               4rem;
+  --space-10:              6rem;
+
+  /* --- Fluid Section Spacing --- */
+  --section-space-sm:      clamp(2rem, calc(1.7143rem + 1.4286vw), 3rem);
+  --section-space-md:      clamp(3rem, calc(2.4286rem + 2.8571vw), 5rem);
+  --section-space-lg:      clamp(4rem, calc(3.1429rem + 4.2857vw), 7rem);
+  --section-space-xl:      clamp(5.5rem, calc(4.3571rem + 5.7143vw), 9.5rem);
+
+  /* --- Container Widths --- */
+  --container-narrow:      768px;
+  --container-default:     1280px;
+  --container-wide:        1280px;
+  --container-padding-x:   clamp(1rem, 5vw, 2.5rem);
+}
+
+
+/* ==========================================================================
+   ZONE 3 -- Semantic Theme Tokens
+   4 modes: base (kalk/white), dark (woud/dark-blue), brand (eik/near-black), warm (tarwe/off-white)
+   Switched via data-theme attribute on any container.
+   ========================================================================== */
+
+/* --- Base Theme (Kalk -- clean white) --- */
+:root,
+[data-theme="base"] {
+  --color-bg:              var(--color-kalk);
+  --color-text:            var(--color-eik);
+  --color-text-secondary:  var(--color-leisteen);
+  --color-text-muted:      var(--color-leisteen-o60);
+  --color-heading:         var(--color-eik);
+  --color-accent:          var(--color-koper);
+  --color-link:            var(--color-eik);
+  --color-link-hover:      var(--color-koper-dark);
+  --color-border:          var(--color-eik-o20);
+  --color-border-subtle:   var(--color-eik-o8);
+  --color-selection-bg:    var(--color-koper-o30);
+  --color-selection-text:  var(--color-eik);
+  --color-shadow-base:     var(--color-eik-o12);
+  --color-success:         var(--color-hop);
+  --color-error:           var(--color-roest);
+  --focus-ring-color:      var(--color-koper);
+  --focus-ring-width:      2px;
+  --focus-ring-offset:     2px;
+}
+
+/* --- Dark Theme (Woud -- dark blue) --- */
+[data-theme="dark"] {
+  --color-bg:              var(--color-woud);
+  --color-text:            var(--color-kalk);
+  --color-text-secondary:  var(--color-tarwe);
+  --color-text-muted:      var(--color-kalk-o50);
+  --color-heading:         var(--color-kalk);
+  --color-accent:          var(--color-koper);
+  --color-link:            var(--color-tarwe);
+  --color-link-hover:      var(--color-kalk);
+  --color-border:          var(--color-kalk-o15);
+  --color-border-subtle:   var(--color-kalk-o10);
+  --color-selection-bg:    var(--color-koper-o40);
+  --color-selection-text:  var(--color-kalk);
+  --color-shadow-base:     var(--color-eik-o40);
+  --color-success:         var(--color-hop);
+  --color-error:           var(--color-roest);
+  --focus-ring-color:      var(--color-koper);
+  --focus-ring-width:      2px;
+  --focus-ring-offset:     2px;
+}
+
+/* --- Brand Theme (Woud-darker -- deep dark blue) --- */
+[data-theme="brand"] {
+  --color-bg:              var(--color-woud-darker);
+  --color-text:            var(--color-kalk);
+  --color-text-secondary:  var(--color-tarwe);
+  --color-text-muted:      var(--color-kalk-o40);
+  --color-heading:         var(--color-kalk);
+  --color-accent:          var(--color-koper);
+  --color-link:            var(--color-tarwe);
+  --color-link-hover:      var(--color-kalk);
+  --color-border:          var(--color-kalk-o15);
+  --color-border-subtle:   var(--color-kalk-o10);
+  --color-selection-bg:    var(--color-koper-o40);
+  --color-selection-text:  var(--color-kalk);
+  --color-shadow-base:     var(--color-black);
+  --color-success:         var(--color-hop);
+  --color-error:           var(--color-roest);
+  --focus-ring-color:      var(--color-tarwe);
+  --focus-ring-width:      2px;
+  --focus-ring-offset:     2px;
+}
+
+/* --- Warm Theme (Tarwe -- warm off-white) --- */
+[data-theme="warm"] {
+  --color-bg:              var(--color-tarwe);
+  --color-text:            var(--color-eik);
+  --color-text-secondary:  var(--color-leisteen-dark);
+  --color-text-muted:      var(--color-eik-o40);
+  --color-heading:         var(--color-eik);
+  --color-accent:          var(--color-koper);
+  --color-link:            var(--color-eik);
+  --color-link-hover:      var(--color-koper-dark);
+  --color-border:          var(--color-eik-o15);
+  --color-border-subtle:   var(--color-eik-o8);
+  --color-selection-bg:    var(--color-koper-o30);
+  --color-selection-text:  var(--color-eik);
+  --color-shadow-base:     var(--color-eik-o20);
+  --color-success:         var(--color-hop);
+  --color-error:           var(--color-roest);
+  --focus-ring-color:      var(--color-koper);
+  --focus-ring-width:      2px;
+  --focus-ring-offset:     2px;
+}
+
+
+/* ==========================================================================
+   ZONE 3b -- Component Bridge Tokens
+   ========================================================================== */
+
+:root {
+  /* --- Header --- */
+  --header-bg:             transparent;
+  --header-bg-scrolled:    var(--color-kalk);
+  --header-text:           var(--color-kalk);
+  --header-text-scrolled:  var(--color-eik);
+  --header-link:           var(--color-kalk);
+  --header-link-scrolled:  var(--color-eik);
+  --header-link-hover:     var(--color-koper);
+  --header-border-bottom:  var(--color-eik-o8);
+  --header-height:         4.5rem;
+  --header-z-index:        100;
+
+  /* --- Mobile Overlay --- */
+  --mobile-overlay-bg:     var(--color-woud);
+  --mobile-overlay-text:   var(--color-kalk);
+  --mobile-overlay-link:   var(--color-kalk);
+  --mobile-overlay-link-hover: var(--color-koper);
+  --mobile-overlay-link-size: var(--font-size-h2);
+
+  /* --- Card: Menu Highlight --- */
+  --card-menu-highlight-bg:           transparent;
+  --card-menu-highlight-border:       var(--color-eik-o15);
+  --card-menu-highlight-hover-border: var(--color-koper);
+  --card-menu-highlight-radius:       var(--radius-none);
+  --card-menu-highlight-label-font:   var(--font-accent);
+  --card-menu-highlight-label-color:  var(--color-koper);
+  --card-menu-highlight-padding:      var(--space-6);
+
+  /* --- Card: Group Option --- */
+  --card-group-bg:         var(--color-kalk);
+  --card-group-border:     var(--color-eik-o12);
+  --card-group-hover-border: var(--color-koper-o40);
+  --card-group-radius:     var(--radius-md);
+  --card-group-padding:    var(--space-6);
+  --card-group-shadow:     none;
+
+  /* --- Form Inputs --- */
+  --input-bg:              var(--color-white);
+  --input-border:          var(--color-eik-o20);
+  --input-focus-border:    var(--color-koper);
+  --input-error-border:    var(--color-roest);
+  --input-radius:          var(--radius-sm);
+  --input-padding:         var(--space-3) var(--space-4);
+  --input-text:            var(--color-eik);
+  --input-placeholder:     var(--color-leisteen-o60);
+  --input-disabled-bg:     var(--color-eik-o8);
+  --input-disabled-text:   var(--color-leisteen-o60);
+  --input-disabled-border: var(--color-eik-o8);
+
+  /* --- Accordion --- */
+  --accordion-border:      var(--color-eik-o12);
+  --accordion-padding:     var(--space-5) 0;
+  --accordion-icon-color:  var(--color-koper);
+  --accordion-hover-bg:    var(--color-eik-o8);
+  --accordion-question-font:   var(--font-display);
+  --accordion-question-size:   var(--font-size-h3);
+  --accordion-question-weight: var(--font-weight-semibold);
+  --accordion-question-color:  var(--color-heading);
+  --accordion-answer-font:     var(--font-body);
+  --accordion-answer-size:     var(--font-size-body);
+  --accordion-answer-color:    var(--color-text-secondary);
+  --accordion-answer-line-height: var(--line-height-relaxed);
+
+  /* --- Footer --- */
+  --footer-bg:             var(--color-eik);
+  --footer-text:           var(--color-tarwe);
+  --footer-heading:        var(--color-kalk);
+  --footer-link:           var(--color-tarwe);
+  --footer-link-hover:     var(--color-koper);
+  --footer-accent:         var(--color-koper);
+  --footer-border-top:     var(--color-koper-o30);
+  --footer-divider:        var(--color-kalk-o15);
+  --footer-copyright:      var(--color-kalk-o40);
+
+  /* --- Menu Items: Chalkboard (dark theme sections) --- */
+  --menu-chalk-name:       var(--color-kalk);
+  --menu-chalk-desc:       var(--color-tarwe);
+  --menu-chalk-price-font: var(--font-accent);
+  --menu-chalk-price-color: var(--color-koper);
+  --menu-chalk-separator:  dotted;
+  --menu-chalk-separator-color: var(--color-kalk-o15);
+
+  /* --- Menu Items: Light (base theme sections) --- */
+  --menu-light-name:       var(--color-eik);
+  --menu-light-desc:       var(--color-leisteen);
+  --menu-light-price-font: var(--font-accent);
+  --menu-light-price-color: var(--color-koper);
+  --menu-light-separator:  dotted;
+  --menu-light-separator-color: var(--color-eik-o12);
+
+  /* --- Dietary Badges --- */
+  --badge-dietary-bg:      var(--color-hop);
+  --badge-dietary-size:    6px;
+  --badge-dietary-radius:  var(--radius-pill);
+
+  /* --- Copper Rule (decorative divider) --- */
+  --copper-rule-width:     80px;
+  --copper-rule-height:    var(--border-width-medium);
+  --copper-rule-color:     var(--color-koper);
+
+  /* --- Hero Overlay --- */
+  --hero-overlay-bottom:   var(--color-eik-o75);
+  --hero-overlay-mid:      var(--color-eik-o35);
+
+  /* --- GuestPlan Widget --- */
+  --guestplan-bg:          var(--color-white);
+  --guestplan-border:      var(--color-eik-o12);
+  --guestplan-radius:      var(--radius-md);
+  --guestplan-padding:     var(--space-6);
+  --guestplan-shadow:      var(--shadow-md);
+
+  /* --- Star Rating --- */
+  --star-active:           var(--color-koper);
+  --star-inactive:         var(--color-eik-o15);
+  --star-size:             1.25rem;
+}
+
+
+/* ==========================================================================
+   ZONE 4 -- Button Variants
+   Per-theme button colors. Shared dimensions in :root.
+   ========================================================================== */
+
+:root {
+  /* --- Shared Button Dimensions --- */
+  --btn-font:              var(--font-body);
+  --btn-font-size:         var(--font-size-body-sm);
+  --btn-font-weight:       var(--font-weight-semibold);
+  --btn-letter-spacing:    var(--letter-spacing-wide);
+  --btn-text-transform:    uppercase;
+  --btn-radius:            var(--radius-sm);
+  --btn-min-height:        48px;
+  --btn-padding-x:         var(--space-7);
+  --btn-padding-y:         var(--space-3);
+  --btn-gap:               var(--space-2);
+  --btn-border-width:      var(--border-width-thin);
+  --btn-transition:        all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --btn-hover-lift:        translateY(-1px);
+  --btn-active-press:      translateY(0px);
+}
+
+/* --- Base Theme Buttons --- */
+:root,
+[data-theme="base"] {
+  --btn-primary-bg:            var(--color-woud);
+  --btn-primary-text:          var(--color-kalk);
+  --btn-primary-border:        var(--color-woud);
+  --btn-primary-hover-bg:      var(--color-woud-dark);
+  --btn-primary-hover-text:    var(--color-kalk);
+  --btn-primary-hover-border:  var(--color-woud-dark);
+  --btn-primary-active-bg:     var(--color-woud-darker);
+  --btn-primary-active-text:   var(--color-kalk);
+  --btn-primary-disabled-bg:   var(--color-woud-o35);
+  --btn-primary-disabled-text: var(--color-kalk-o50);
+  --btn-primary-disabled-border: var(--color-woud-o35);
+
+  --btn-secondary-bg:            transparent;
+  --btn-secondary-text:          var(--color-woud);
+  --btn-secondary-border:        var(--color-woud);
+  --btn-secondary-hover-bg:      var(--color-woud);
+  --btn-secondary-hover-text:    var(--color-kalk);
+  --btn-secondary-hover-border:  var(--color-woud);
+  --btn-secondary-active-bg:     var(--color-woud-dark);
+  --btn-secondary-active-text:   var(--color-kalk);
+  --btn-secondary-disabled-bg:   transparent;
+  --btn-secondary-disabled-text: var(--color-woud-o35);
+  --btn-secondary-disabled-border: var(--color-woud-o35);
+
+  --btn-tertiary-bg:             transparent;
+  --btn-tertiary-text:           var(--color-koper-dark);
+  --btn-tertiary-border:         transparent;
+  --btn-tertiary-hover-bg:       var(--color-koper-o8);
+  --btn-tertiary-hover-text:     var(--color-koper);
+  --btn-tertiary-hover-border:   transparent;
+  --btn-tertiary-active-bg:      var(--color-koper-o8);
+  --btn-tertiary-active-text:    var(--color-koper-dark);
+  --btn-tertiary-disabled-bg:    transparent;
+  --btn-tertiary-disabled-text:  var(--color-eik-o25);
+  --btn-tertiary-disabled-border: transparent;
+}
+
+/* --- Dark Theme Buttons --- */
+[data-theme="dark"] {
+  --btn-primary-bg:            var(--color-kalk);
+  --btn-primary-text:          var(--color-woud);
+  --btn-primary-border:        var(--color-kalk);
+  --btn-primary-hover-bg:      var(--color-white);
+  --btn-primary-hover-text:    var(--color-woud-dark);
+  --btn-primary-hover-border:  var(--color-white);
+  --btn-primary-active-bg:     var(--color-tarwe);
+  --btn-primary-active-text:   var(--color-woud-darker);
+  --btn-primary-disabled-bg:   var(--color-kalk-o15);
+  --btn-primary-disabled-text: var(--color-kalk-o40);
+  --btn-primary-disabled-border: var(--color-kalk-o15);
+
+  --btn-secondary-bg:            transparent;
+  --btn-secondary-text:          var(--color-kalk);
+  --btn-secondary-border:        var(--color-kalk);
+  --btn-secondary-hover-bg:      var(--color-kalk);
+  --btn-secondary-hover-text:    var(--color-woud);
+  --btn-secondary-hover-border:  var(--color-kalk);
+  --btn-secondary-active-bg:     var(--color-tarwe);
+  --btn-secondary-active-text:   var(--color-woud-dark);
+  --btn-secondary-disabled-bg:   transparent;
+  --btn-secondary-disabled-text: var(--color-kalk-o40);
+  --btn-secondary-disabled-border: var(--color-kalk-o40);
+
+  --btn-tertiary-bg:             transparent;
+  --btn-tertiary-text:           var(--color-tarwe);
+  --btn-tertiary-border:         transparent;
+  --btn-tertiary-hover-bg:       var(--color-kalk-o10);
+  --btn-tertiary-hover-text:     var(--color-kalk);
+  --btn-tertiary-hover-border:   transparent;
+  --btn-tertiary-active-bg:      var(--color-kalk-o10);
+  --btn-tertiary-active-text:    var(--color-tarwe);
+  --btn-tertiary-disabled-bg:    transparent;
+  --btn-tertiary-disabled-text:  var(--color-kalk-o15);
+  --btn-tertiary-disabled-border: transparent;
+}
+
+/* --- Brand Theme Buttons --- */
+[data-theme="brand"] {
+  --btn-primary-bg:            var(--color-kalk);
+  --btn-primary-text:          var(--color-eik);
+  --btn-primary-border:        var(--color-kalk);
+  --btn-primary-hover-bg:      var(--color-white);
+  --btn-primary-hover-text:    var(--color-eik);
+  --btn-primary-hover-border:  var(--color-white);
+  --btn-primary-active-bg:     var(--color-tarwe);
+  --btn-primary-active-text:   var(--color-eik);
+  --btn-primary-disabled-bg:   var(--color-kalk-o15);
+  --btn-primary-disabled-text: var(--color-kalk-o40);
+  --btn-primary-disabled-border: var(--color-kalk-o15);
+
+  --btn-secondary-bg:            transparent;
+  --btn-secondary-text:          var(--color-kalk);
+  --btn-secondary-border:        var(--color-kalk);
+  --btn-secondary-hover-bg:      var(--color-kalk);
+  --btn-secondary-hover-text:    var(--color-eik);
+  --btn-secondary-hover-border:  var(--color-kalk);
+  --btn-secondary-active-bg:     var(--color-tarwe);
+  --btn-secondary-active-text:   var(--color-eik);
+  --btn-secondary-disabled-bg:   transparent;
+  --btn-secondary-disabled-text: var(--color-kalk-o40);
+  --btn-secondary-disabled-border: var(--color-kalk-o40);
+
+  --btn-tertiary-bg:             transparent;
+  --btn-tertiary-text:           var(--color-tarwe);
+  --btn-tertiary-border:         transparent;
+  --btn-tertiary-hover-bg:       var(--color-kalk-o10);
+  --btn-tertiary-hover-text:     var(--color-kalk);
+  --btn-tertiary-hover-border:   transparent;
+  --btn-tertiary-active-bg:      var(--color-kalk-o10);
+  --btn-tertiary-active-text:    var(--color-tarwe);
+  --btn-tertiary-disabled-bg:    transparent;
+  --btn-tertiary-disabled-text:  var(--color-kalk-o15);
+  --btn-tertiary-disabled-border: transparent;
+}
+
+/* --- Warm Theme Buttons --- */
+[data-theme="warm"] {
+  --btn-primary-bg:            var(--color-woud);
+  --btn-primary-text:          var(--color-kalk);
+  --btn-primary-border:        var(--color-woud);
+  --btn-primary-hover-bg:      var(--color-woud-dark);
+  --btn-primary-hover-text:    var(--color-kalk);
+  --btn-primary-hover-border:  var(--color-woud-dark);
+  --btn-primary-active-bg:     var(--color-woud-darker);
+  --btn-primary-active-text:   var(--color-kalk);
+  --btn-primary-disabled-bg:   var(--color-woud-o35);
+  --btn-primary-disabled-text: var(--color-kalk-o50);
+  --btn-primary-disabled-border: var(--color-woud-o35);
+
+  --btn-secondary-bg:            transparent;
+  --btn-secondary-text:          var(--color-woud);
+  --btn-secondary-border:        var(--color-woud);
+  --btn-secondary-hover-bg:      var(--color-woud);
+  --btn-secondary-hover-text:    var(--color-kalk);
+  --btn-secondary-hover-border:  var(--color-woud);
+  --btn-secondary-active-bg:     var(--color-woud-dark);
+  --btn-secondary-active-text:   var(--color-kalk);
+  --btn-secondary-disabled-bg:   transparent;
+  --btn-secondary-disabled-text: var(--color-woud-o35);
+  --btn-secondary-disabled-border: var(--color-woud-o35);
+
+  --btn-tertiary-bg:             transparent;
+  --btn-tertiary-text:           var(--color-koper-dark);
+  --btn-tertiary-border:         transparent;
+  --btn-tertiary-hover-bg:       var(--color-koper-o8);
+  --btn-tertiary-hover-text:     var(--color-koper);
+  --btn-tertiary-hover-border:   transparent;
+  --btn-tertiary-active-bg:      var(--color-koper-o8);
+  --btn-tertiary-active-text:    var(--color-koper-dark);
+  --btn-tertiary-disabled-bg:    transparent;
+  --btn-tertiary-disabled-text:  var(--color-eik-o25);
+  --btn-tertiary-disabled-border: transparent;
+}
+
+
+/* ==========================================================================
+   ZONE 5 -- Text Style Rules + Utility Classes
+   @layer base for element defaults. Unlayered for opt-in classes.
+   ========================================================================== */
+
+@layer base {
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.03em;
+    color: var(--color-heading);
+    margin-bottom: var(--space-6);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-snug);
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-heading);
+    margin-bottom: var(--space-5);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-heading);
+    margin-bottom: var(--space-4);
+  }
+
+  h4 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-widest);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  a {
+    color: var(--color-link);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  ::selection {
+    background: var(--color-selection-bg);
+    color: var(--color-selection-text);
+  }
+}
+
+/* --- Opt-in Text Classes (unlayered) --- */
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text);
+}
+
+.text-body-sm {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-muted);
+}
+
+.text-accent {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-accent);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-accent);
+}
+
+.text-accent-lg {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-accent-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-accent);
+}
+
+.text-overline {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* --- Container Classes --- */
+
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.container-default {
+  max-width: var(--container-default);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+/* --- Copper Rule (decorative divider) --- */
+
+.copper-rule {
+  display: block;
+  width: var(--copper-rule-width);
+  height: var(--copper-rule-height);
+  background: var(--copper-rule-color);
+  border: none;
+}
+
+/* --- Scroll Reveal (initial state for Framer Motion) --- */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* --- Reduced Motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

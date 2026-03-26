@@ -1,26 +1,43 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "../styles/tokens.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-eik: #080A0B;
+  --color-kalk: #FFFFFF;
+  --color-woud: #24323E;
+  --color-koper: #C8AE79;
+  --color-leisteen: #566878;
+  --color-tarwe: #F5F0E8;
+  --color-hop: #6B8F71;
+  --color-roest: #A63D2F;
+  --color-koper-dark: #24323E;
+  --color-woud-dark: #1A242D;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scroll offset for anchor links (sticky nav compensation) */
+html {
+  scroll-padding-top: var(--header-height);
+}
+
+/* Hero image reveal -- CSS-only so LCP image paints immediately (no JS dependency) */
+@keyframes heroReveal {
+  from { transform: scale(1.03); }
+  to   { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [class*="heroReveal"] {
+    animation: none !important;
+  }
 }

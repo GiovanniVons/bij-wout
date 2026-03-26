@@ -2,7 +2,7 @@
 **Phase:** 2
 **Agent:** UI Designer
 **Date:** 2026-03-25
-**Status:** draft
+**Status:** approved (realigned 2026-03-26)
 
 ---
 
@@ -12,8 +12,8 @@
 |------|------|----------|------------|
 | [Global: Navigation](#global-navigation) | -- | Desktop nav, mobile overlay | base |
 | [Global: Footer](#global-footer) | -- | Three-column + colophon | brand (Eik) |
-| [Home](#page-home) | `/` | Hero, Intro Strip, Menu Preview, Monday Callout, About Teaser, Social Proof, CTA Strip | base > base > base > warm > base > base > dark |
-| [Menu](#page-menu) | `/menu` | Hero Banner, Sticky Jump Links, Lunch, Diner, Kinderen, Wisselbieren, Dietary Legend | brand > dark > dark > dark > dark > dark > base |
+| [Home](#page-home) | `/` | Hero, Intro Strip, Video, Menu Preview, Monday Callout, About Teaser, Social Proof, CTA Strip | base > base > base > base > warm > base > base > dark |
+| [Menu](#page-menu) | `/menu` | Menu Hero, Sticky Jump Links, Favorietjes, Lunch Header, Lunch Menu, Wisselgerechten, Diner Header, Diner Menu, Spareribs Callout, Kinderen, Beer Section, Dietary Legend, CTA Strip | brand > warm > warm > warm > warm > dark > warm > warm > brand > warm > dark > base > dark |
 | [Over Wout](#page-over-wout) | `/over-wout` | Reversed Hero, Origin Story, Philosophy Values, Team, Sourcing Strip | base > base > dark > base > warm |
 | [Groepen](#page-groepen) | `/groepen` | Image Hero, Option Cards, Pricing, Inquiry Form | base > base > warm > base |
 | [Maandagavond](#page-maandagavond) | `/maandagavond` | Hero + Price Badge, Current Menu, How It Works, CTA | warm > base > base > dark |
@@ -152,7 +152,7 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 |                            Over Wout          Moergestel          |
 |                            Groepen                                |
 |                            Maandagavond       013 850 8300        |
-|   [IG] [FB]                Reserveren         info@bijwout.nl     |
+|   [IG] [FB] [TA] [UT]     Reserveren         info@bijwout.nl     |
 |                                                                   |
 |-------------------------------------------------------------------+
 |   (c) 2026 Bij Wout  .  Privacybeleid                            |
@@ -169,7 +169,7 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 - "Bij Wout": Lora, `var(--font-size-body-lg)` / `var(--font-weight-bold)`, `var(--footer-heading)`.
 - Tagline: Source Serif 4 italic, `var(--font-size-body)`, `var(--footer-text)`.
 - Margin top after tagline: `var(--space-5)`.
-- Social icons: 20px, `var(--footer-text)`, hover `var(--footer-link-hover)`, gap `var(--space-3)`.
+- Social icons: Instagram, Facebook, TripAdvisor, Untappd. SVG stroke icons, 20x20px, `var(--footer-text)`, hover `var(--footer-link-hover)`, gap `var(--space-3)`.
 
 **Column 2 -- Pages:**
 - Heading "Pagina's": Source Serif 4, `var(--font-size-body-sm)`, `var(--font-weight-semibold)`, `var(--footer-accent)`, `var(--letter-spacing-wide)`, text-transform uppercase.
@@ -295,7 +295,42 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 
 ---
 
-### Section 3: Menu Preview Cards
+### Section 3: Video
+
+**Theme:** base (Kalk background)
+
+```
++-------------------------------------------------------------------+
+|                                                                   |
+|            +---------------------------------------+              |
+|            |                                       |              |
+|            |   [Vimeo embed 16:9]                  |              |
+|            |   video/938298685                      |              |
+|            |                                       |              |
+|            +---------------------------------------+              |
+|                                                                   |
++-------------------------------------------------------------------+
+```
+
+**Layout:** Container `var(--container-default)`. Single column, centered.
+
+**Padding:** `var(--section-space-sm)` vertical.
+
+**Video embed:**
+- Vimeo iframe, video ID `938298685`.
+- Aspect ratio: 16:9.
+- `max-width: 56rem`, centered with `margin-inline: auto`.
+- Border-radius: `var(--radius-md)`.
+- Overflow: hidden (clips iframe corners to match radius).
+- iframe attributes: `loading="lazy"`, `allowfullscreen`.
+
+**Animation:** ScrollReveal -- fade up, 600ms, trigger at 25% viewport.
+
+**Responsive (mobile):** Full container width, aspect ratio maintained.
+
+---
+
+### Section 4: Menu Preview Cards
 
 **Theme:** base (Kalk background)
 
@@ -308,12 +343,13 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 |   | ############ |  | ############ |  | ############ |            |
 |   | ## photo ### |  | ## photo ### |  | ## photo ### |            |
 |   | ############ |  | ############ |  | ############ |            |
-|   |              |  |              |  |              |            |
-|   |  Voorgerecht |  |  Hoofdgerecht|  |  Dessert     |            |
-|   |  Dish name   |  |  Dish name   |  |  Dish name   |            |
+|   | ///gradient// |  | ///gradient// |  | ///gradient// |            |
+|   |  * Lunch     |  |  * Diner     |  |  * Craft Bier|            |
+|   |  Title       |  |  Title       |  |  Title       |            |
+|   |  Description |  |  Description |  |  Description |            |
 |   +--------------+  +--------------+  +--------------+            |
 |                                                                   |
-|                      [ Volledige kaart ]                          |
+|              [ Bekijk de volledige kaart ]                         |
 |                                                                   |
 +-------------------------------------------------------------------+
 ```
@@ -327,46 +363,39 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 - Margin bottom: `var(--space-6)`.
 - Left-aligned (not centered -- breaks the default pattern).
 
-**Card grid:** CSS Grid, `repeat(3, 1fr)`, gap `var(--space-5)`.
+**Card grid:** CSS Grid, `repeat(3, 1fr)`, gap `var(--space-5)`. On mobile: single column, gap `var(--space-4)`.
 
-**Individual card (Polaroid style):**
-- Background: `var(--color-kalk)`.
-- Border: `var(--border-width-thin)` solid `var(--color-eik-o10)`.
-- Box shadow: `var(--shadow-sm)`.
-- Border-radius: `var(--radius-sm)` -- barely rounded, like a printed photograph.
-- Padding: `var(--space-3)` on all sides, `var(--space-4)` on bottom.
-- Image: aspect ratio 4:5 (portrait, like a Polaroid). `object-fit: cover`. No border-radius on image (sharp inside the card frame).
-- Image margin-bottom: `var(--space-3)`.
-- Card tilts: first card `rotate(-1.5deg)`, second card `rotate(0.5deg)`, third card `rotate(-0.8deg)`. Subtle, like photos scattered on a table.
+**Individual card (overlay style):**
+- Three cards: Lunch, Diner, Craft Bier.
+- Image: food photo, aspect ratio ~3:4. `object-fit: cover`. Fills entire card.
+- Gradient overlay: linear-gradient from `var(--color-eik-o75)` at bottom to transparent at top. Positioned over image, covers bottom ~50%.
+- Border-radius: `var(--radius-md)`.
+- Overflow: hidden.
 
-**Card text:**
-- Category label (Voorgerecht/Hoofdgerecht/Dessert): Caveat, `var(--font-size-accent)`, `var(--color-accent)`.
-- Dish name: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-semibold)`, `var(--color-heading)`.
-- Short description: Source Serif 4, `var(--font-size-body-sm)` / `var(--font-weight-regular)`, `var(--color-text)`. One line, `max-width: 24ch`.
-- Gap between label and name: `var(--space-1)`. Gap between name and description: `var(--space-1)`.
+**Card text (overlaid at bottom, on gradient):**
+- Category label: Caveat, `var(--font-size-accent)`, `var(--color-koper)`.
+- Title: `var(--font-size-body)` / `var(--font-weight-semibold)`, `var(--color-kalk)`.
+- Description: `var(--font-size-body-sm)`, `var(--color-kalk-o80)`.
+- Padding: `var(--space-4)` bottom and sides.
 
-**CTA "Volledige kaart":**
-- `btn-secondary` variant, centered below cards.
+**Hover:** Image scales to 1.04, box-shadow `var(--shadow-lg)`, transition 300ms ease.
+
+**CTA "Bekijk de volledige kaart":**
+- `btn-primary` variant, centered below cards.
 - Margin top: `var(--space-6)`.
-
-**WOW moment:** The Polaroid tilt angles. Each card rotates slightly differently, creating an organic "photos-on-the-bar" effect. On hover, card straightens to 0deg rotation (200ms ease).
 
 **Animation (Framer Motion):**
 - StaggerReveal: cards stagger in with 150ms delay between each. Each card fades up (opacity 0 > 1, translateY 24px > 0, 600ms ease-out).
-- Cards start at their tilted rotation -- the rotation is part of the default state, not the animation.
 
 **Responsive (tablet 768-1023px):**
 - Three columns maintained but tighter gap `var(--space-4)`.
 
 **Responsive (mobile < 768px):**
-- Horizontal scroll carousel. Cards at 280px width, gap `var(--space-4)`. `overflow-x: auto`, `scroll-snap-type: x mandatory`, `scroll-snap-align: center` on each card.
-- No grid -- flex row with `flex-shrink: 0`.
-- Scroll padding: `var(--container-padding-x)`.
-- Cards keep their individual tilt angles.
+- Single column stack. Cards full container width.
 
 ---
 
-### Section 4: Monday Callout
+### Section 5: Monday Callout
 
 **Theme:** warm (Tarwe background)
 
@@ -417,7 +446,7 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 
 ---
 
-### Section 5: About Teaser
+### Section 6: About Teaser
 
 **Theme:** base (Kalk background)
 
@@ -469,7 +498,7 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 
 ---
 
-### Section 6: Social Proof
+### Section 7: Social Proof
 
 **Theme:** base (Kalk background)
 
@@ -515,7 +544,7 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 
 ---
 
-### Section 7: CTA Strip
+### Section 8: CTA Strip
 
 **Theme:** dark (Woud background)
 
@@ -555,9 +584,9 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 
 **URL:** `/menu`
 **Meta:** "Menukaart -- Bij Wout"
-**Design direction:** Dark theme (Woud) for the food sections to create a "chalkboard" atmosphere. Sticky navigation for quick jumping between sections.
+**Design direction:** Editorial category headers with food photography break up the menu sections. Warm theme (Tarwe) for food sections, dark theme (Woud) for rotating specials and beer. Sticky pill-tab navigation for quick jumping between categories.
 
-### Section 1: Menu Hero Banner
+### Section 1: Menu Hero (Editorial)
 
 **Theme:** brand (Eik background)
 
@@ -565,140 +594,330 @@ All specifications below reference token variables from `tokens.css`. No raw hex
 +-------------------------------------------------------------------+
 | ###########  EIK BACKGROUND  #################################### |
 |                                                                   |
-|       De kaart                                                    |
-|                                                                   |
-|       Seizoensgebonden, eerlijk, lokaal.                           |
+|   +------------------+                                            |
+|   |                  |     De kaart                                |
+|   |   [Food photo]   |     * Seizoensgebonden, eerlijk, lokaal    |
+|   |                  |                                            |
+|   |                  |     Intro paragraph about the menu          |
+|   +------------------+     philosophy and seasonal approach...     |
 |                                                                   |
 +-------------------------------------------------------------------+
 ```
 
-**Layout:** Container `var(--container-default)`, left-aligned text.
+**Layout:** Container `var(--container-default)`. CSS Grid, `1fr 1fr`, gap `var(--space-6)`.
 
-**Padding:** `var(--section-space-lg)` top (clears fixed nav), `var(--section-space-sm)` bottom. Compact banner, not a full hero.
+**Padding:** `var(--section-space-lg)` top (clears fixed nav), `var(--section-space-md)` bottom. Two-column editorial hero, not a compact banner.
 
-**Heading "De kaart":**
-- Lora, `var(--font-size-h1)` / `var(--font-weight-bold)` / `var(--line-height-tight)`, `var(--color-kalk)`.
+**Left column -- food photo:**
+- Aspect ratio: 3:4. `object-fit: cover`.
+- Border-radius: `var(--radius-md)`.
 
-**Subline:**
-- Source Serif 4 italic, `var(--font-size-body-lg)` / `var(--font-weight-regular)`, `var(--color-kalk-o65)`.
-- Margin top: `var(--space-3)`.
+**Right column -- text:**
+- Vertically centered in grid cell.
+- Heading "De kaart": Lora, `var(--font-size-h1)` / `var(--font-weight-bold)` / `var(--line-height-tight)`, `var(--color-kalk)`.
+- Subtitle: Caveat, `var(--font-size-accent)`, `var(--color-koper)`. Margin-top `var(--space-2)`.
+- Intro paragraph: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--color-kalk-o80)`. Margin-top `var(--space-4)`.
 
-**Animation:** Headline fades in, 500ms. Subline follows 200ms later.
+**Animation:** Photo fades in 600ms. Text fades up (heading 0ms, subtitle 200ms, body 400ms).
+
+**Responsive (mobile):**
+- Single column stack. Photo on top (full width), text below.
 
 ---
 
-### Section 2: Sticky Jump Links
+### Section 2: Sticky Jump Links (Pill Tabs)
+
+**Theme:** warm (Tarwe background)
+
+```
++-------------------------------------------------------------------+
+|  (Favorietjes) (Lunch) (Wisselgerechten) (Diner) (Kinderen) (Bier)|
++-------------------------------------------------------------------+
+```
+
+**Position:** `position: sticky`, `top: var(--nav-offset)`, `z-index: 40` (below nav). Uses the `--nav-offset` CSS variable pattern -- docks to bottom of navbar when visible, moves to top of viewport when navbar hides on scroll-down.
+
+**Background:** `var(--color-tarwe)`. Bottom border: `var(--border-width-thin)` solid `var(--color-eik-o10)`.
+
+**Layout:** Flex row, `justify-content: center`, gap `var(--space-3)`.
+
+**Padding:** `var(--space-3)` vertical.
+
+**Categories:** Favorietjes, Lunch, Wisselgerechten, Diner, Kinderen, Craft Bier.
+
+**Pill style:**
+- Source Serif 4, `var(--font-size-body-sm)` / `var(--font-weight-semibold)`, `var(--color-eik-o65)`.
+- Padding: `var(--space-1) var(--space-3)`.
+- Border-radius: `var(--radius-pill)`.
+- Active (in-view section): background `var(--color-koper-o20)`, text `var(--color-eik)`.
+- Hover: `var(--color-eik)`.
+- Transition: all 200ms ease.
+
+**No separator bars.** Pill shapes provide visual separation.
+
+**Responsive (mobile):**
+- Horizontal scroll if pills overflow. `overflow-x: auto`, `white-space: nowrap`.
+- Padding: `var(--space-2) var(--container-padding-x)`.
+
+---
+
+### Section 3: Favorietjes
+
+**Theme:** warm (Tarwe background)
+
+**Layout:** Container `var(--container-narrow)`.
+
+**Padding:** `var(--section-space-sm)` vertical.
+
+**Section heading "Favorietjes":**
+- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)` / `var(--line-height-snug)`, `var(--color-heading)`.
+- Copper rule underline: margin-top `var(--space-2)`, margin-bottom `var(--space-6)`.
+
+**Menu items:** Grid of bar snack items from menu data.
+- Each item: dish name + description + price.
+- Same menu-item row pattern as Lunch/Diner sections (flex row, dot leader, price right-aligned).
+- Tagged items show dietary badge (V, GF, etc.) in `var(--color-hop)`.
+
+**Animation:** ScrollReveal on each menu item, stagger 80ms, fade up 12px, 400ms.
+
+---
+
+### Section 4: Lunch Category Header
+
+**Theme:** warm (Tarwe background)
+
+```
++-------------------------------------------------------------------+
+|                                                                   |
+|   +------------------+   --------                                 |
+|   |                  |   Lunch                                    |
+|   |   [Food photo]   |   * "Broodjes, uitsmijters en verse soep" |
+|   |   3:2 aspect     |                                            |
+|   |                  |                                            |
+|   +------------------+                                            |
+|                                                                   |
++-------------------------------------------------------------------+
+```
+
+**Layout:** Container `var(--container-default)`. CSS Grid, `1fr 1fr`, gap `var(--space-6)`.
+
+**Padding:** `var(--section-space-sm)` vertical.
+
+**Left column -- food photo:**
+- Aspect ratio: 3:2. `object-fit: cover`.
+- Border-radius: `var(--radius-md)`.
+
+**Right column -- text:**
+- Copper rule: `var(--copper-rule-width)` wide, `var(--copper-rule-height)` tall, `var(--copper-rule-color)`. Margin-bottom `var(--space-3)`.
+- Heading "Lunch": Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-heading)`.
+- Quote: Caveat, `var(--font-size-accent)`, `var(--color-accent)`. "Broodjes, uitsmijters en verse soep". Margin-top `var(--space-2)`.
+
+**Animation:** Photo fades in 500ms. Text fades up 400ms, delay 200ms.
+
+**Responsive (mobile):** Single column. Photo on top, text below.
+
+---
+
+### Section 5: Lunch Menu Items
+
+**Theme:** warm (Tarwe background)
+
+**Layout:** Container `var(--container-narrow)`.
+
+**Padding:** `var(--section-space-sm)` top, `var(--section-space-md)` bottom.
+
+**Subcategory headings:** Soepen, Tosti's, Specials, Klassiekers, Salades.
+- Lora, `var(--font-size-h3)` / `var(--font-weight-semibold)`, `var(--color-heading-secondary)`. Margin-top `var(--space-5)`, margin-bottom `var(--space-3)`.
+
+**Menu item row:**
+- Flex row: dish name + dot leader + price.
+- Dish name: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-semibold)`, `var(--color-heading)`.
+- Price: Source Serif 4, `var(--font-size-body)`, `var(--color-koper-dark)`. Right-aligned, `white-space: nowrap`.
+- Dot leader: flex-grow element between name and price. `border-bottom: var(--border-width-thin) dotted var(--color-eik-o15)`.
+- Description: Source Serif 4, `var(--font-size-body-sm)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--color-text)`.
+- Dietary tags (V, GF): `var(--font-size-caption)`, `var(--color-hop)`.
+- Margin between items: `var(--space-4)`.
+
+**Animation:** ScrollReveal on each menu item, stagger 80ms, fade up 12px, 400ms.
+
+**Responsive (mobile):**
+- Menu items: below 400px, switch to stacked layout (name + description above, price below right-aligned).
+
+---
+
+### Section 6: Wisselgerechten
+
+**Theme:** dark (Woud background)
+
+**Layout:** Container `var(--container-narrow)`.
+
+**Padding:** `var(--section-space-md)` vertical.
+
+**Section heading "Wisselgerechten":**
+- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-kalk)`.
+- Copper rule underline. Margin-bottom `var(--space-6)`.
+
+**Date label:** Source Serif 4 italic, `var(--font-size-body-sm)`, `var(--color-kalk-o65)`. Indicates the week/period the specials apply.
+
+**Menu items:** Rotating weekly specials. Same menu-item row layout as other sections, but on dark theme:
+- Dish name: `var(--color-kalk)`.
+- Price: `var(--color-koper)`.
+- Description: `var(--color-kalk-o80)`.
+- Dot leader: `var(--color-kalk-o15)`.
+
+**Animation:** ScrollReveal, fade up.
+
+---
+
+### Section 7: Diner Category Header
+
+**Theme:** warm (Tarwe background)
+
+Same pattern as Lunch Category Header (Section 4):
+- CSS Grid `1fr 1fr`, food photo left + copper rule + heading "Diner" + Caveat quote "Van entrecote tot wisselgerecht" right.
+
+---
+
+### Section 8: Diner Menu Items
+
+**Theme:** warm (Tarwe background)
+
+Same layout pattern as Lunch Menu Items (Section 5).
+
+**Subcategory headings:** Brood, Soepen, Voorgerechten, Hoofdgerechten, Salades, Nagerechten, Speciale Koffies.
+
+Same menu-item row pattern. Same animation and responsive behavior.
+
+---
+
+### Section 9: Spareribs Callout
+
+**Theme:** brand (Eik background)
+
+```
++-------------------------------------------------------------------+
+| ###########  EIK BACKGROUND  #################################### |
+|                                                                   |
+|     * Elke donderdag in maart                                     |
+|                                                                   |
+|     Spareribs                                                     |
+|                                                                   |
+|     Body text about the                  +------------------+     |
+|     spareribs special...                 |                  |     |
+|                                          |   [Promo image]  |     |
+|     EUR XX,XX p.p.                       |                  |     |
+|                                          +------------------+     |
+|     [ Reserveer ]                                                 |
+|                                                                   |
++-------------------------------------------------------------------+
+```
+
+**Layout:** Container `var(--container-default)`. CSS Grid, `1fr 1fr`, gap `var(--space-6)`.
+
+**Padding:** `var(--section-space-md)` vertical.
+
+**Left column -- text:**
+- Overline: Caveat, `var(--font-size-accent)`, `var(--color-koper)`. "Elke donderdag in maart". Margin-bottom `var(--space-2)`.
+- Heading "Spareribs": Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-kalk)`.
+- Body: Source Serif 4, `var(--font-size-body)` / `var(--line-height-relaxed)`, `var(--color-kalk-o80)`. Margin-top `var(--space-3)`.
+- Price: Lora, `var(--font-size-body-lg)` / `var(--font-weight-bold)`, `var(--color-koper)`. Margin-top `var(--space-3)`.
+- CTA: `btn-primary` on brand theme. Margin-top `var(--space-4)`.
+
+**Right column -- promo image:**
+- Aspect ratio: 4:3. `object-fit: cover`.
+- Border-radius: `var(--radius-md)`.
+
+**Animation:** ScrollReveal on text + image, stagger 200ms.
+
+**Responsive (mobile):** Single column. Image below text.
+
+---
+
+### Section 10: Kinderen
+
+**Theme:** warm (Tarwe background)
+
+**Layout:** Container `var(--container-narrow)`.
+
+**Padding:** `var(--section-space-md)` vertical.
+
+**Section heading "Kinderen":**
+- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-heading)`.
+- Copper rule underline. Margin-bottom `var(--space-6)`.
+
+**Menu items:** Children's menu. Same menu-item row pattern.
+
+**Animation:** ScrollReveal, stagger 80ms.
+
+---
+
+### Section 11: Beer Section
 
 **Theme:** dark (Woud background)
 
 ```
 +-------------------------------------------------------------------+
-|   Lunch    |    Diner    |    Kinderen    |    Wisselbieren        |
-+-------------------------------------------------------------------+
-```
-
-**Position:** `position: sticky`, `top: var(--header-height)`, `z-index: 40` (below nav).
-
-**Background:** `var(--color-woud)`. Bottom border: `var(--border-width-thin)` solid `var(--color-kalk-o15)`.
-
-**Layout:** Flex row, `justify-content: center`, gap `var(--space-5)`.
-
-**Padding:** `var(--space-3)` vertical.
-
-**Link style:**
-- Source Serif 4, `var(--font-size-body-sm)` / `var(--font-weight-semibold)`, `var(--color-kalk-o65)`.
-- `var(--letter-spacing-wide)`.
-- Active (in-view section): `var(--color-koper)` with bottom line `var(--border-width-thick)` solid `var(--color-koper)`, padding-bottom `var(--space-1)`.
-- Hover: `var(--color-kalk)`.
-- Transition: color 200ms ease.
-
-**Separator:** Vertical bar between items, `var(--color-kalk-o15)`, via `border-right` on each link except last.
-
-**Responsive (mobile):**
-- Horizontal scroll if links overflow. `overflow-x: auto`, `white-space: nowrap`.
-- Padding: `var(--space-2) var(--container-padding-x)`.
-
----
-
-### Sections 3-6: Menu Content (Lunch / Diner / Kinderen / Wisselbieren)
-
-**Theme:** dark (Woud background) for all menu sections.
-
-Each menu section follows the same template:
-
-```
-+-------------------------------------------------------------------+
 | ###########  WOUD BACKGROUND  ################################### |
 |                                                                   |
-|     Lunch                                                         |
-|     --------                                                      |
+|     Craft Bier                                                    |
+|     ----------                                                    |
 |                                                                   |
-|     Soep van de dag .......................... EUR 8,50            |
-|     Seizoenssoep met brood                                        |
-|     (V) (GF-optie)                                                |
+|     Van de tap                                                    |
+|     +--------------+   +--------------+                           |
+|     | [Beer image] |   | [Beer image] |                           |
+|     |  Brewery     |   |  Brewery     |                           |
+|     |  Beer name   |   |  Beer name   |                           |
+|     |  Style . ABV |   |  Style . ABV |                           |
+|     +--------------+   +--------------+                           |
 |                                                                   |
-|     Broodje pulled pork ..................... EUR 14,50            |
-|     Met coleslaw en friet                                         |
+|     IPA             Wit             Blond                         |
+|     Beer list...    Beer list...    Beer list...                  |
+|                                                                   |
+|     Tripel          Bockbier        Donkere bieren               |
+|     Beer list...    Beer list...    Beer list...                  |
 |                                                                   |
 +-------------------------------------------------------------------+
 ```
 
-**Layout:** Container `var(--container-narrow)`.
+**Layout:** Container `var(--container-default)`.
 
-**Padding:** `var(--section-space-md)` top, `var(--section-space-sm)` bottom. First section (Lunch) has `var(--section-space-sm)` top.
+**Padding:** `var(--section-space-md)` vertical.
 
-**Section heading:**
-- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)` / `var(--line-height-snug)`, `var(--menu-chalk-name)`.
-- Underline: `var(--copper-rule-width)` wide, `var(--copper-rule-height)` tall, `var(--copper-rule-color)`. Margin-top `var(--space-2)`, margin-bottom `var(--space-6)`.
+**Section heading "Craft Bier":**
+- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-kalk)`.
+- Copper rule underline. Margin-bottom `var(--space-6)`.
 
-**Menu item row:**
-- Flex row: dish name + dot leader + price.
-- Dish name: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-semibold)`, `var(--menu-chalk-name)`.
-- Price: `var(--menu-chalk-price-font)`, `var(--font-size-body)`, `var(--menu-chalk-price-color)`. Right-aligned, `white-space: nowrap`.
-- Dot leader: flex-grow element between name and price. `border-bottom: var(--border-width-thin) var(--menu-chalk-separator) var(--menu-chalk-separator-color)`.
-- Description: Source Serif 4, `var(--font-size-body-sm)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--menu-chalk-desc)`.
-- Dietary tags (V, GF): `var(--font-size-caption)`, `var(--color-hop)`.
-- Margin between items: `var(--space-4)`.
-
-**Subcategory headings (Soepen, Broodjes, Voorgerechten, etc.):**
-- Lora, `var(--font-size-h3)` / `var(--font-weight-semibold)`, `var(--color-kalk-o80)`. Margin-top `var(--space-5)`, margin-bottom `var(--space-3)`.
-
-**Wisselbieren -- different layout (beer cards):**
-
-```
-+----------------------------------------------+
-|                                              |
-|   Wisselbieren                               |
-|   ----------                                 |
-|                                              |
-|   +--------------+   +--------------+        |
-|   |  Brouwerij X |   |  Brouwerij Y |        |
-|   |  Bier naam   |   |  Bier naam   |        |
-|   |  Stijl . ABV |   |  Stijl . ABV |        |
-|   +--------------+   +--------------+        |
-|                                              |
-+----------------------------------------------+
-```
-
-**Beer card:**
+**"Van de tap" featured cards:**
+- Subheading "Van de tap": Lora, `var(--font-size-h3)` / `var(--font-weight-semibold)`, `var(--color-kalk-o80)`. Margin-bottom `var(--space-4)`.
+- Grid: `repeat(2, 1fr)`, gap `var(--space-4)`.
+- Each card has a beer image (aspect ratio ~1:1, `object-fit: cover`, border-radius `var(--radius-sm)`) above text.
 - Background: `var(--color-kalk-o8)`.
 - Border: `var(--border-width-thin)` solid `var(--color-kalk-o15)`.
 - Border-radius: `var(--radius-sm)`.
 - Padding: `var(--space-3)`.
-- Grid: `repeat(2, 1fr)`, gap `var(--space-3)`.
 - Brewery: Source Serif 4, `var(--font-size-caption)`, `var(--font-weight-semibold)`, `var(--color-koper)`, `var(--letter-spacing-wide)`, uppercase.
 - Beer name: Source Serif 4, `var(--font-size-body)`, `var(--font-weight-semibold)`, `var(--color-kalk)`.
 - Style + ABV: Source Serif 4, `var(--font-size-caption)`, `var(--color-kalk-o65)`. Separated by mid-dot.
 
-**Animation (all menu sections):** ScrollReveal on each menu item, stagger 80ms, fade up 12px, 400ms.
+**Categorized beer lists:**
+- 6 categories: IPA, Wit, Blond, Tripel, Bockbier, Donkere bieren.
+- Grid: `repeat(3, 1fr)` on desktop (2 rows of 3), gap `var(--space-5)`.
+- Category heading: Lora, `var(--font-size-body-lg)` / `var(--font-weight-semibold)`, `var(--color-kalk)`. Margin-bottom `var(--space-3)`.
+- Each beer: brewery, name, style, ABV, price.
+- Brewery: `var(--font-size-caption)`, `var(--color-koper)`, uppercase.
+- Name: `var(--font-size-body-sm)`, `var(--font-weight-semibold)`, `var(--color-kalk)`.
+- Style + ABV: `var(--font-size-caption)`, `var(--color-kalk-o65)`.
+- Price: `var(--font-size-body-sm)`, `var(--color-koper)`.
+
+**Animation:** StaggerReveal on "Van de tap" cards, 150ms. ScrollReveal on each beer category grid.
 
 **Responsive (mobile):**
-- Menu items: below 400px, switch to stacked layout (name + description above, price below right-aligned).
-- Beer cards: single column.
+- "Van de tap" cards: single column.
+- Beer category grid: single column stack.
 
 ---
 
-### Section 7: Dietary Legend
+### Section 12: Dietary Legend
 
 **Theme:** base (Kalk background)
 
@@ -724,6 +943,24 @@ Each menu section follows the same template:
 
 ---
 
+### Section 13: CTA Strip
+
+**Theme:** dark (Woud background)
+
+**Layout:** Container `var(--container-narrow)`, center-aligned.
+
+**Padding:** `var(--section-space-md)` vertical.
+
+**Heading "Reserveer een tafel":**
+- Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-kalk)`.
+
+**CTA "Reserveer een tafel":**
+- `btn-primary` on dark theme. Margin-top `var(--space-4)`.
+
+**Animation:** ScrollReveal, fade up.
+
+---
+
 ## Page: Over Wout
 
 **URL:** `/over-wout`
@@ -738,8 +975,8 @@ Each menu section follows the same template:
 +------------------------------------------------------------------------+
 |                                                                        |
 |--+-- bleeds left  +---------------------+                              |
-|                   |                     |     Van de fabriek            |
-|                   |   [Interior shot]   |     naar het fornuis          |
+|                   |                     |     Een kok, een plein,       |
+|                   |   [Interior shot]   |     een plan                  |
 |                   |                     |                              |
 |                   |                     |     Subtitle text            |
 |                   +---------------------+                              |
@@ -758,8 +995,8 @@ Each menu section follows the same template:
 
 **Right column -- text:**
 - Vertically centered in grid cell.
-- Heading "Van de fabriek naar het fornuis": Lora, `var(--font-size-h1)` / `var(--font-weight-bold)` / `var(--line-height-tight)`, `var(--color-heading)`.
-- Subtitle: Source Serif 4, `var(--font-size-body-lg)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--color-text-secondary)`.
+- Heading "Een kok, een plein, een plan": Lora, `var(--font-size-h1)` / `var(--font-weight-bold)` / `var(--line-height-tight)`, `var(--color-heading)`.
+- Subtitle "Geen schuimrecepten. Geen push pass. Gewoon een kok die kookt wat er binnenkomt, en ergens in 2015 dacht: ik ga het zelf doen.": Source Serif 4, `var(--font-size-body-lg)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--color-text-secondary)`.
 - Margin between heading and subtitle: `var(--space-4)`.
 
 **WOW moment:** Mirror composition of Home hero bleed -- image bleeds LEFT instead of right.
@@ -855,7 +1092,7 @@ Each menu section follows the same template:
 
 **Theme:** base (Kalk background)
 
-**Layout:** Container `var(--container-default)`. CSS Grid `repeat(3, 1fr)`, gap `var(--space-5)`.
+**Layout:** Container `var(--container-default)`. CSS Grid `1fr 1fr`, gap `var(--space-6)`.
 
 **Padding:** `var(--section-space-md)` vertical.
 
@@ -863,18 +1100,18 @@ Each menu section follows the same template:
 - Lora, `var(--font-size-h2)` / `var(--font-weight-bold)`, `var(--color-heading)`.
 - Margin-bottom: `var(--space-6)`.
 
-**Team member card:**
-- No background, no border (minimal -- photos carry it).
-- Photo: aspect ratio 1:1 (square). `object-fit: cover`. Border-radius: `var(--radius-md)`.
-- Name: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-semibold)`, `var(--color-heading)`. Margin-top `var(--space-3)`.
-- Role: Caveat, `var(--font-size-body-sm)`, `var(--color-accent)`.
-- Margin-top role: `var(--space-1)`.
+**Left column -- owners photo:**
+- Image: `owners.jpg`. Aspect ratio 3:4 (portrait). `object-fit: cover`.
+- Border-radius: `var(--radius-md)`.
 
-**Hover effect:** Photo scales to 1.03 with `overflow: hidden` on the container, 300ms ease.
+**Right column -- philosophy text block:**
+- Body: Source Serif 4, `var(--font-size-body)` / `var(--font-weight-regular)` / `var(--line-height-relaxed)`, `var(--color-text)`.
+- Content: "Bij Wout is van Wout Huijben en zijn partner. Geen franchise, geen investeerders, geen managementteam..." and continuing with the restaurant's personal philosophy.
+- Max-width: `34em`.
 
-**Animation:** StaggerReveal, 120ms stagger.
+**Animation:** ScrollReveal on photo + text, stagger 200ms.
 
-**Responsive (mobile):** `repeat(2, 1fr)`, gap `var(--space-4)`.
+**Responsive (mobile):** Single column. Photo on top, text below.
 
 ---
 
@@ -1339,15 +1576,25 @@ All animations respect `prefers-reduced-motion: reduce`:
 |------|---------|-------|
 | **Home** | Hero | base |
 | | Intro Strip | base |
+| | Video | base |
 | | Menu Preview Cards | base |
 | | Monday Callout | **warm** |
 | | About Teaser | base |
 | | Social Proof | base |
 | | CTA Strip | **dark** |
-| **Menu** | Hero Banner | **brand** |
-| | Sticky Jump Links | **dark** |
-| | Lunch-Wisselbieren | **dark** |
+| **Menu** | Menu Hero | **brand** |
+| | Sticky Jump Links | **warm** |
+| | Favorietjes | **warm** |
+| | Lunch Header | **warm** |
+| | Lunch Menu | **warm** |
+| | Wisselgerechten | **dark** |
+| | Diner Header | **warm** |
+| | Diner Menu | **warm** |
+| | Spareribs Callout | **brand** |
+| | Kinderen | **warm** |
+| | Beer Section | **dark** |
 | | Dietary Legend | base |
+| | CTA Strip | **dark** |
 | **Over Wout** | Reversed Hero | base |
 | | Origin Story | base |
 | | Philosophy Values | **dark** |
@@ -1372,9 +1619,12 @@ All animations respect `prefers-reduced-motion: reduce`:
 | Page | WOW Moment | Section |
 |------|-----------|---------|
 | Home | Right-bleeding hero image with one-sided radius | Hero |
-| Home | Polaroid tilt angles on menu preview cards | Menu Preview |
+| Home | Gradient overlay cards with food photography | Menu Preview |
 | Home | Portrait overlapping into section above via negative margin | About Teaser |
-| Menu | Chalkboard-style dark theme with dot-leader pricing | Lunch/Diner |
+| Menu | Editorial 2-col category headers with food photography | Lunch/Diner Headers |
+| Menu | Pill-tab sticky nav with koper-o20 active state | Sticky Jump Links |
+| Menu | Spareribs promotional callout on brand theme | Spareribs Callout |
+| Menu | Featured "Van de tap" image cards + categorized beer lists | Beer Section |
 | Over Wout | Left-bleeding image (mirror of Home hero) | Reversed Hero |
 | Groepen | Asymmetric card heights via staggered padding | Option Cards |
 | Maandagavond | Rotating copper price badge with spring entrance | Hero |

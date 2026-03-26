@@ -27,22 +27,23 @@
 
 :root {
   /* --- 1a: Color Primitives --- */
-  --color-eik:             #2C2416;
-  --color-kalk:            #F5F0E8;
-  --color-woud:            #2D4A3E;
-  --color-koper:           #B87333;
-  --color-leisteen:        #5C5C52;
-  --color-tarwe:           #E8D5A3;
+  /* Aligned to Bij Wout's branding: #080A0B (black), #FFFFFF (white), #C8AE79 (gold), #24323E (dark blue) */
+  --color-eik:             #080A0B;
+  --color-kalk:            #FFFFFF;
+  --color-woud:            #24323E;
+  --color-koper:           #C8AE79;
+  --color-leisteen:        #566878;
+  --color-tarwe:           #F5F0E8;
   --color-hop:             #6B8F71;
   --color-roest:           #A63D2F;
   --color-white:           #FFFFFF;
-  --color-black:           #1A1A1A;
+  --color-black:           #080A0B;
 
   /* Derived primitives */
-  --color-koper-dark:      #8B5A27;
-  --color-woud-dark:       #1E332A;
-  --color-woud-darker:     #152420;
-  --color-leisteen-dark:   #3D3D3B;
+  --color-koper-dark:      #24323E;
+  --color-woud-dark:       #1A242D;
+  --color-woud-darker:     #121A21;
+  --color-leisteen-dark:   #3E505C;
 
   /* --- 1a: Typography Primitives --- */
   --font-display:          'Lora', Georgia, 'Times New Roman', serif;
@@ -158,8 +159,8 @@
 
 :root {
   /* --- Fluid Font Sizes --- */
-  --font-size-display:     clamp(2.5rem, calc(2.2143rem + 1.4286vw), 3.5rem);
-  --font-size-h1:          clamp(2rem, calc(1.7857rem + 1.0714vw), 2.75rem);
+  --font-size-display:     clamp(2.75rem, calc(2.4286rem + 1.6071vw), 3.875rem);
+  --font-size-h1:          clamp(2.125rem, calc(1.875rem + 1.25vw), 3rem);
   --font-size-h2:          clamp(1.5rem, calc(1.3571rem + 0.7143vw), 2rem);
   --font-size-h3:          clamp(1.25rem, calc(1.1786rem + 0.3571vw), 1.5rem);
   --font-size-h4:          clamp(0.875rem, calc(0.8393rem + 0.1786vw), 1rem);
@@ -198,11 +199,11 @@
 
 /* ==========================================================================
    ZONE 3 -- Semantic Theme Tokens
-   4 modes: base (kalk), dark (woud), brand (eik), warm (tarwe)
+   4 modes: base (kalk/white), dark (woud/dark-blue), brand (eik/near-black), warm (tarwe/off-white)
    Switched via data-theme attribute on any container.
    ========================================================================== */
 
-/* --- Base Theme (Kalk -- light, warm limestone) --- */
+/* --- Base Theme (Kalk -- clean white) --- */
 :root,
 [data-theme="base"] {
   --color-bg:              var(--color-kalk);
@@ -211,8 +212,8 @@
   --color-text-muted:      var(--color-leisteen-o60);
   --color-heading:         var(--color-eik);
   --color-accent:          var(--color-koper);
-  --color-link:            var(--color-woud);
-  --color-link-hover:      var(--color-woud-dark);
+  --color-link:            var(--color-eik);
+  --color-link-hover:      var(--color-koper-dark);
   --color-border:          var(--color-eik-o20);
   --color-border-subtle:   var(--color-eik-o8);
   --color-selection-bg:    var(--color-koper-o30);
@@ -225,7 +226,7 @@
   --focus-ring-offset:     2px;
 }
 
-/* --- Dark Theme (Woud -- deep forest green) --- */
+/* --- Dark Theme (Woud -- dark blue) --- */
 [data-theme="dark"] {
   --color-bg:              var(--color-woud);
   --color-text:            var(--color-kalk);
@@ -247,9 +248,9 @@
   --focus-ring-offset:     2px;
 }
 
-/* --- Brand Theme (Eik -- dark oak) --- */
+/* --- Brand Theme (Woud-darker -- deep dark blue) --- */
 [data-theme="brand"] {
-  --color-bg:              var(--color-eik);
+  --color-bg:              var(--color-woud-darker);
   --color-text:            var(--color-kalk);
   --color-text-secondary:  var(--color-tarwe);
   --color-text-muted:      var(--color-kalk-o40);
@@ -269,7 +270,7 @@
   --focus-ring-offset:     2px;
 }
 
-/* --- Warm Theme (Tarwe -- golden wheat) --- */
+/* --- Warm Theme (Tarwe -- warm off-white) --- */
 [data-theme="warm"] {
   --color-bg:              var(--color-tarwe);
   --color-text:            var(--color-eik);
@@ -277,8 +278,8 @@
   --color-text-muted:      var(--color-eik-o40);
   --color-heading:         var(--color-eik);
   --color-accent:          var(--color-koper);
-  --color-link:            var(--color-woud);
-  --color-link-hover:      var(--color-woud-dark);
+  --color-link:            var(--color-eik);
+  --color-link-hover:      var(--color-koper-dark);
   --color-border:          var(--color-eik-o15);
   --color-border-subtle:   var(--color-eik-o8);
   --color-selection-bg:    var(--color-koper-o30);
@@ -336,7 +337,7 @@
   /* --- Form Inputs --- */
   --input-bg:              var(--color-white);
   --input-border:          var(--color-eik-o20);
-  --input-focus-border:    var(--color-woud);
+  --input-focus-border:    var(--color-koper);
   --input-error-border:    var(--color-roest);
   --input-radius:          var(--radius-sm);
   --input-padding:         var(--space-3) var(--space-4);
@@ -610,7 +611,7 @@
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
-    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: -0.03em;
     color: var(--color-heading);
     margin-bottom: var(--space-6);
   }
@@ -618,7 +619,7 @@
   h2 {
     font-family: var(--font-display);
     font-size: var(--font-size-h2);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
     line-height: var(--line-height-snug);
     letter-spacing: var(--letter-spacing-tight);
     color: var(--color-heading);
@@ -685,7 +686,7 @@
   font-size: var(--font-size-display);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: -0.03em;
   color: var(--color-heading);
 }
 

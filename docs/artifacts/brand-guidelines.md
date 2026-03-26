@@ -2,7 +2,7 @@
 **Phase:** 1
 **Agent:** brand-strategist
 **Date:** 2026-03-25
-**Status:** draft
+**Status:** approved (realigned 2026-03-26)
 
 ---
 
@@ -30,9 +30,9 @@ Every restaurant site in this region defaults to one of two modes: dark and mood
 
 ### Description
 
-The digital experience should feel like the inside of Bij Wout on a Saturday at 4 PM: warm ambient light through square windows, worn wooden tabletops, a blackboard with today's specials, the hum of conversation. Surfaces are warm and textured -- not polished or sterile. Think raw plaster walls, oak grain, handwritten chalkboard menus. The color temperature runs warm throughout: cream-tinted backgrounds with deep Brabant greens and burnished copper accents. Typography mixes a sturdy, slightly imperfect display face (the sign above the door) with an effortlessly readable body (the menu card). White space is used like the distance between tables -- enough to be comfortable, not so much it feels empty. Photography should be documentary and golden-hour: real plates, real pour, real faces, never styled or art-directed.
+The digital experience should feel like the inside of Bij Wout on a Saturday at 4 PM: warm ambient light through square windows, worn wooden tabletops, a blackboard with today's specials, the hum of conversation. Surfaces are clean but warm -- white backgrounds with warmth coming from photography, typography, and copper-gold accents rather than from the background color itself. The palette runs zero-brown: deep navy-blue (#24323E) provides structural authority, muted gold (#C8AE79) catches the eye on calls to action and accent moments, and pure white (#FFFFFF) gives the content room to breathe. Warm off-white (#F5F0E8) appears as an alternating surface to break up white sections. Typography mixes a sturdy, slightly imperfect display serif (the sign above the door) with an effortlessly readable body serif (the menu card). Handwritten Caveat moments add the proprietor's hand -- the chalk on the board. White space is used like the distance between tables -- enough to be comfortable, not so much it feels empty. Photography should be documentary and golden-hour: real plates, real pour, real faces, never styled or art-directed.
 
-This aesthetic is textured without being rustic-kitsch. It is warm without being sentimental. It has the quiet confidence of someone who does not need to explain why the beer list is good -- it just is.
+This aesthetic is clean without being clinical. It is warm without being sentimental. The warmth comes from content and texture, not from a cream-tinted digital surface. It has the quiet confidence of someone who does not need to explain why the beer list is good -- it just is.
 
 ### Anti-Reference
 
@@ -96,51 +96,57 @@ Warm, textured, proprietor-driven. The visual language of a neighborhood establi
 
 Base size: 18px (1.125rem) -- slightly large for comfortable reading on screens, appropriate for a restaurant site where visitors scan quickly.
 
-| Level | Size | Weight | Line Height | Letter Spacing | Font |
-|-------|------|--------|-------------|----------------|------|
-| Display (hero) | clamp(2.75rem, 2.2rem + 2.5vw, 4.5rem) | 700 | 1.05 | -0.02em | Lora |
-| H1 | clamp(2.25rem, 1.8rem + 2vw, 3.5rem) | 700 | 1.1 | -0.015em | Lora |
-| H2 | clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem) | 700 | 1.15 | -0.01em | Lora |
-| H3 | clamp(1.375rem, 1.15rem + 1vw, 1.75rem) | 600 | 1.2 | 0 | Source Serif 4 |
-| H4 | clamp(1.125rem, 1rem + 0.5vw, 1.375rem) | 600 | 1.3 | 0.01em | Source Serif 4 |
-| Body Large | 1.25rem | 400 | 1.6 | 0 | Source Serif 4 |
-| Body | 1.125rem | 400 | 1.65 | 0 | Source Serif 4 |
-| Body Small | 0.9375rem | 400 | 1.6 | 0.005em | Source Serif 4 |
-| Caption | 0.8125rem | 400 | 1.5 | 0.02em | Source Serif 4 |
-| Accent Display | clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem) | 700 | 1.2 | 0 | Caveat |
-| Accent Label | 1.125rem | 400 | 1.3 | 0.01em | Caveat |
+| Level | Size (fluid clamp) | Weight | Line Height | Letter Spacing | Font |
+|-------|-------------------|--------|-------------|----------------|------|
+| Display (hero) | clamp(2.75rem, 2.43rem + 1.61vw, 3.875rem) | 700 | 1.1 | -0.03em | Lora |
+| H1 | clamp(2.125rem, 1.875rem + 1.25vw, 3rem) | 700 | 1.1 | -0.03em | Lora |
+| H2 | clamp(1.5rem, 1.36rem + 0.71vw, 2rem) | 700 | 1.25 | -0.02em | Lora |
+| H3 | clamp(1.25rem, 1.18rem + 0.36vw, 1.5rem) | 600 | 1.25 | 0 | Lora |
+| H4 | clamp(0.875rem, 0.84rem + 0.18vw, 1rem) | 600 | 1.5 | 0.14em | Source Serif 4 |
+| Body Large | clamp(1.125rem, 1.09rem + 0.18vw, 1.25rem) | 400 | 1.65 | 0 | Source Serif 4 |
+| Body | 1rem (static) | 400 | 1.65 | 0 | Source Serif 4 |
+| Body Small | 0.875rem | 400 | 1.5 | 0 | Source Serif 4 |
+| Caption | 0.75rem | 400 | 1.5 | 0.04em | Source Serif 4 |
+| Accent | clamp(1.25rem, 1.18rem + 0.36vw, 1.5rem) | 400 | 1.25 | 0 | Caveat |
+| Accent Large | clamp(1.5rem, 1.36rem + 0.71vw, 2rem) | 400 | 1.25 | 0 | Caveat |
 
 ### Color System
 
-The palette draws from the physical materials of a Brabant village brasserie: oak wood, slate tile, copper beer taps, cream-colored plaster walls, and the deep green of the surrounding countryside.
+The palette was realigned on 2026-03-25 to match Bij Wout's actual branding. The direction shifted from warm-brown earth tones to a zero-brown system: dark navy-blue for structural authority, muted gold for accent warmth, and clean white as the dominant surface. This removes the original forest-green and brown-black tones in favor of a more modern, client-aligned palette that still communicates warmth through typography, photography, and accent color.
 
 **Primitives:**
 
 | Name | Hex | Role | Rationale |
 |------|-----|------|-----------|
-| **Eik** (Oak) | `#2C2416` | Neutral dark | Deep brown-black, extracted from aged oak. Never pure black -- this dark has warmth and wood-grain depth. Used for primary text and structural elements. |
-| **Kalk** (Lime plaster) | `#F5F0E8` | Neutral light / dominant background | The color of aged lime plaster on a Brabant farmhouse wall. Warm cream, not white. This is the 60% dominant surface color. |
-| **Woud** (Forest) | `#2D4A3E` | Primary structural color | Deep Brabant forest green. The anchor color that creates authority and depth. Used for headers, navigation backgrounds, footer, and key structural blocks. Provides the essential contrast against Kalk. |
-| **Koper** (Copper) | `#B87333` | Primary accent | The burnished copper of a well-used beer tap. Warmer and more orange than the existing gold (#c4ae80), with more saturation and life. Used for CTAs, links, highlights, and active states. This replaces the flat gold with something that catches light. |
-| **Leisteen** (Slate) | `#5C5C52` | Secondary neutral | Warm grey with an olive undertone, like the slate tiles on a village square. Used for secondary text, borders, dividers, and muted interface elements. |
-| **Tarwe** (Wheat) | `#E8D5A3` | Secondary warm | Unfiltered wheat beer. A warm straw-gold for subtle backgrounds, card surfaces, hover states, and the warm midtone between Kalk and Koper. Creates depth in layered surfaces. |
-| **Hop** (Hop leaf) | `#6B8F71` | Secondary accent (green) | A lighter, livelier green than Woud. Used for success states, fresh/seasonal indicators, and decorative green moments. The green of a hop vine in summer. |
+| **Eik** (Oak) | `#080A0B` | Neutral dark / near-black | Deep near-black for primary text and structural darkness. Provides maximum contrast on white without the harshness of pure #000. Used for headings, body text, and the mobile menu overlay. |
+| **Kalk** (Chalk) | `#FFFFFF` | Neutral light / dominant background | Clean white. The 60% dominant surface. Warmth comes from the content on it (golden-hour photography, Koper accents, Tarwe section breaks), not from the background itself. |
+| **Woud** (Forest) | `#24323E` | Primary structural color | Dark slate-blue. The anchor color for authority and depth. Used for primary buttons, navigation (scrolled state), dark-theme sections, and structural blocks. Provides strong contrast against Kalk (12.5:1). |
+| **Koper** (Copper) | `#C8AE79` | Primary accent | Muted gold, aligned to the client's existing branding. Less saturated than pure copper, more refined -- the color of a brass beer tap after years of use. Used for CTAs, active links, decorative rules, star ratings, and accent typography. |
+| **Leisteen** (Slate) | `#566878` | Secondary neutral | Cool blue-gray for secondary text, borders, and muted elements. The shift from olive-gray to blue-gray complements the Woud dark-blue anchor. |
+| **Tarwe** (Wheat) | `#F5F0E8` | Warm off-white surface | A warm off-white that provides subtle background variation. Used for alternating warm-theme sections (Monday special, menu category headers, sourcing strip). Creates rhythm against Kalk without heavy contrast. |
+| **Hop** (Hop leaf) | `#6B8F71` | Functional green | Muted green for dietary badges, success states, and fresh/seasonal indicators. Stays the same as original -- no realignment needed. |
+| **Roest** (Rust) | `#A63D2F` | Error / alert | Warm rust-red for error states and form validation. |
+
+**Derived Primitives:**
+
+| Name | Hex | Derivation | Usage |
+|------|-----|-----------|-------|
+| **Koper-dark** | `#24323E` | Same as Woud | Tertiary button text, link hover on warm bg |
+| **Woud-dark** | `#1A242D` | Woud darkened | Primary button hover |
+| **Woud-darker** | `#121A21` | Woud darkened further | Brand theme bg, primary button active |
+| **Leisteen-dark** | `#3E505C` | Leisteen darkened | Secondary text on warm backgrounds |
 
 **Semantic Colors:**
 
 | State | Color | Hex |
 |-------|-------|-----|
 | Success | Hop | `#6B8F71` |
-| Warning | Koper (lightened) | `#D4944D` |
-| Error | Roest (Rust) | `#A63D2F` |
-| Info | Woud (lightened) | `#3D6B5A` |
+| Error | Roest | `#A63D2F` |
 
 **60/30/10 Distribution:**
-- **60% -- Kalk** (#F5F0E8): dominant background surface. The walls of the room.
-- **30% -- Woud** (#2D4A3E) + **Eik** (#2C2416): structural dark. Navigation, footer, text, section backgrounds that anchor the page.
-- **10% -- Koper** (#B87333) + **Tarwe** (#E8D5A3): accent warmth. CTAs, links, hover states, decorative highlights, the moments that catch your eye.
-
-**On the existing gold (#c4ae80):** The current site's gold reads flat and desaturated on screen, especially against dark backgrounds. Koper (#B87333) is a more saturated, warmer evolution -- it has the same "burnished metal" feeling but with more depth and energy. Tarwe (#E8D5A3) captures the lighter straw-gold for softer applications. Together, they provide more range than a single gold value.
+- **60% -- Kalk** (#FFFFFF): dominant white background. Clean, modern, lets content breathe.
+- **30% -- Woud** (#24323E) + **Eik** (#080A0B): structural dark. Navigation, footer, dark-theme sections, body text. The visual weight of the room.
+- **10% -- Koper** (#C8AE79) + **Tarwe** (#F5F0E8): warm accent. CTAs, links, hover states, decorative rules, warm section backgrounds. The moments of warmth and gold.
 
 ### Spacing Philosophy
 
@@ -232,7 +238,7 @@ The existing "Bij WOUT" wordmark is a clean, dark logotype with "Lokaal Genieten
 To achieve the "Village Hearth" aesthetic digitally:
 
 - **Warm surfaces:** Background sections should occasionally use a subtle warm noise texture (2-4% opacity) over Kalk to prevent flat digital sterility. Think plaster wall, not smooth drywall.
-- **Chalkboard moments:** The Woud (dark green) can serve as a chalkboard surface for specials, seasonal highlights, or callout sections. Pair with Caveat typography in Kalk or Tarwe for the handwritten-on-slate feeling.
+- **Chalkboard moments:** Woud (dark navy-blue) serves as a chalkboard surface for specials, seasonal highlights, or callout sections. Pair with Caveat typography in Kalk or Tarwe for the handwritten-on-slate feeling.
 - **Wood grain:** Consider subtle wood-grain texture for card backgrounds or section dividers -- not a full photographic texture, but a hint of organic grain.
 - **Border treatments:** Prefer slightly irregular or hand-drawn-feeling borders over perfectly geometric ones. A 1px solid line in Leisteen with slight opacity variation reads more naturally than a razor-sharp rule.
 
@@ -249,12 +255,12 @@ To achieve the "Village Hearth" aesthetic digitally:
 | Display Font | Lora (Bold 700) |
 | Body Font | Source Serif 4 (Regular 400, Semibold 600) |
 | Accent Font | Caveat (Regular 400, Bold 700) |
-| Dominant BG | Kalk #F5F0E8 |
-| Primary Dark | Eik #2C2416 |
-| Primary Structural | Woud #2D4A3E |
-| Primary Accent | Koper #B87333 |
-| Secondary Neutral | Leisteen #5C5C52 |
-| Secondary Warm | Tarwe #E8D5A3 |
+| Dominant BG | Kalk #FFFFFF |
+| Primary Dark | Eik #080A0B |
+| Primary Structural | Woud #24323E |
+| Primary Accent | Koper #C8AE79 |
+| Secondary Neutral | Leisteen #566878 |
+| Warm Surface | Tarwe #F5F0E8 |
 | Secondary Green | Hop #6B8F71 |
 | Error | Roest #A63D2F |
 | Voice | Direct, warm, specific, casual-confident, locally rooted |
