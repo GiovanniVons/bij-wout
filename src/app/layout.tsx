@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import Script from "next/script";
 import "./globals.css";
-import { Navigation } from "@/components/layout/Navigation";
-import { Footer } from "@/components/layout/Footer";
-import { JsonLd, restaurantSchema } from "@/components/layout/JsonLd";
 
 const lora = localFont({
   src: [
@@ -95,24 +91,9 @@ export default function RootLayout({
         <link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4/SourceSerif4-Regular.woff2" crossOrigin="anonymous" />
         {/* Preload LCP hero image */}
         <link rel="preload" as="image" type="image/webp" href="/images/hero-wout-1080.webp" />
-        {/* Preconnect to CMP origin */}
-        <link rel="preconnect" href="https://atshvftlpuvtnredbjgc.supabase.co" />
       </head>
       <body className="min-h-dvh flex flex-col">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-[var(--space-3)] focus:left-[var(--space-3)] focus:z-[9999] focus:bg-[var(--color-kalk)] focus:text-[var(--color-hout)] focus:px-[var(--space-3)] focus:py-[var(--space-2)] focus:rounded-[var(--radius-sm)] focus:shadow-[var(--shadow-md)]"
-        >
-          Ga naar inhoud
-        </a>
-        <JsonLd data={restaurantSchema} />
-        <Navigation />
-        <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
-        <Script
-          src="https://atshvftlpuvtnredbjgc.supabase.co/functions/v1/widget?p=c92fa514-fdc4-4107-b194-01a644abde0f"
-          strategy="lazyOnload"
-        />
+        {children}
       </body>
     </html>
   );

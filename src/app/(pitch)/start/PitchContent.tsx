@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
 import { ScrollReveal, StaggerReveal, StaggerItem } from "@/components/ui/ScrollReveal";
-import { Button } from "@/components/ui/Button";
 import { CopperRule } from "@/components/ui/CopperRule";
 import ScoreRing from "./ScoreRing";
 
@@ -78,72 +76,72 @@ const icons = {
 const problems = [
   {
     stat: "Traag",
-    label: "op mobiel",
-    desc: "De Weebly-template laadt zwaar op telefoons. Externe scripts, geen geoptimaliseerde afbeeldingen. Gasten die onderweg zoeken, wachten te lang.",
+    label: "op je telefoon",
+    desc: "De site laadt langzaam op mobiel. Gasten die onderweg zoeken naar Bij Wout, haken af voordat de pagina geladen is.",
     icon: icons.bolt,
   },
   {
-    stat: "Onzichtbaar",
-    label: "voor Google",
-    desc: "Geen restaurantgegevens voor Google, geen FAQ-schema, geen deelbare previews op WhatsApp of Facebook. Wie jullie zoekt, vindt een kale link.",
+    stat: "Kale link",
+    label: "op WhatsApp",
+    desc: "Deel je de site via WhatsApp of Facebook? Geen foto, geen omschrijving. Gewoon een kale URL. Google weet ook niet precies wat jullie zijn.",
     icon: icons.search,
   },
   {
     stat: "Geen",
-    label: "privacy-compliance",
-    desc: "Geen cookiebanner, geen privacybeleid. Dat is een AVG-overtreding. En bezoekers merken het.",
+    label: "cookiebanner",
+    desc: "Er is geen cookiebanner en geen privacybeleid. Dat moet eigenlijk wel van de wet.",
     icon: icons.shield,
   },
   {
-    stat: "PNG",
+    stat: "Foto",
     label: "als menukaart",
-    desc: "Het menu is een plaatje. Niet doorzoekbaar, niet responsive, en op mobiel onleesbaar. Google indexeert het niet.",
+    desc: "Het menu is een plaatje. Op je telefoon moet je inzoomen en scrollen. En Google kan er niks mee.",
     icon: icons.image,
   },
   {
-    stat: "Grijs",
-    label: "als identiteit",
-    desc: "De huidige site gebruikt standaard grijstinten (#333, #ccc, #eee). Geen eigen kleurenpalet, geen typografie. Bij Wout verdient beter.",
+    stat: "Template",
+    label: "als uitstraling",
+    desc: "Standaard grijstinten, geen eigen kleuren, geen eigen lettertype. De site voelt niet als Bij Wout.",
     icon: icons.palette,
   },
 ];
 
 const solutions = [
   {
-    stat: "< 2s",
-    label: "laadtijd",
-    desc: "Statische site, responsive WebP-afbeeldingen, geen zware scripts. De site laadt razendsnel, ook op een oude telefoon in Moergestel.",
+    stat: "Snel",
+    label: "op elke telefoon",
+    desc: "De nieuwe site laadt in minder dan 2 seconden, ook op een oude telefoon.",
     icon: icons.bolt,
   },
   {
     stat: "Vindbaar",
-    label: "in Google en AI-zoekmachines",
-    desc: "Restaurant-schema, FAQ-schema, OpenGraph-previews met foto. Gedeeld via WhatsApp? Mooie kaart met beeld. Gevonden via ChatGPT? Gestructureerde data.",
+    label: "overal",
+    desc: "Deel je de site op WhatsApp? Mooie kaart met foto. Zoekt iemand op Google of ChatGPT? Jullie komen naar boven.",
     icon: icons.search,
   },
   {
-    stat: "Compliant",
-    label: "privacy en cookiebeheer",
-    desc: "Vonzie Nexus cookiebanner en privacybeleid inbegrepen. Automatisch bijgewerkt. Bij Wout voldoet aan de AVG.",
+    stat: "Cookiebanner",
+    label: "geregeld",
+    desc: "Cookiebanner en privacybeleid zitten erin. Wordt automatisch bijgewerkt.",
     icon: icons.shield,
   },
   {
     stat: "77",
     label: "gerechten online",
-    desc: "Volledig digitaal menu met 77 items. Doorzoekbaar, responsive, vegetarische tags. Van favorietjes tot spareribs, van kinderkaart tot craft bier.",
+    desc: "Het hele menu staat er digitaal op. Gerechten, prijzen, vegetarische opties. Alles leesbaar op je telefoon.",
     icon: icons.image,
   },
   {
     stat: "Eigen",
-    label: "merk-identiteit",
-    desc: "Lora en Source Serif als lettertypen, donker navy met goud als kleurenpalet. Vier thema's die per sectie wisselen. Dit is Bij Wout, niet een template.",
+    label: "uitstraling",
+    desc: "Eigen kleuren, eigen lettertypen, eigen sfeer. Dit is Bij Wout, geen template.",
     icon: icons.palette,
   },
 ];
 
-/* Lighthouse mobile scores -- bijwout.nl (old) vs optimized build (new) */
+/* Lighthouse mobile scores -- bijwout.nl (old) vs bij-wout.vonzie-host.com (new) */
 const scores = [
-  { label: "Snelheid", before: 49, after: 83 },
+  { label: "Snelheid", before: 49, after: 92 },
   { label: "Toegankelijkheid", before: 94, after: 96 },
   { label: "Techniek", before: 69, after: 100 },
   { label: "Vindbaarheid", before: 100, after: 100 },
@@ -152,27 +150,27 @@ const scores = [
 const features = [
   {
     title: "Website op maat",
-    desc: "Next.js, geen template. Gebouwd voor Bij Wout, niemand anders.",
+    desc: "Geen template. Gebouwd voor Bij Wout, niemand anders.",
   },
   {
-    title: "GuestPlan reserveringen",
-    desc: "Gasten boeken direct via de site. Widget ingebouwd op de reserveerpagina.",
+    title: "Reserveringen",
+    desc: "Gasten boeken direct via de site, zonder omweg.",
   },
   {
-    title: "Vonzie Nexus (AVG)",
-    desc: "Cookiebanner en privacybeleid, automatisch bijgewerkt.",
+    title: "Cookiebanner en privacy",
+    desc: "Automatisch bijgewerkt, jullie hoeven er niks voor te doen.",
   },
   {
     title: "Hosting en onderhoud",
-    desc: "Altijd online via Netlify. Updates en beveiliging inbegrepen.",
+    desc: "Altijd online. Updates en beveiliging inbegrepen.",
   },
   {
-    title: "SEO-optimalisatie",
-    desc: "Gestructureerde data, sitemap, meta-beschrijvingen. Vindbaar in Google en AI-zoek.",
+    title: "Vindbaar in Google",
+    desc: "Alles klaarstaan zodat Google en AI-zoekmachines jullie makkelijk vinden.",
   },
   {
     title: "Craft bier database",
-    desc: "33 bieren in 6 categorieen. Wisseltaps uitgelicht. De kaart leeft.",
+    desc: "33 bieren in 6 categorieen. Wisseltaps uitgelicht.",
   },
 ];
 
@@ -185,27 +183,15 @@ const stats = [
 
 const possibilities = [
   {
-    stat: "Ingebouwd",
-    label: "op je eigen site",
-    desc: "Geen iframe of extern venster. De reserveerwidget is onderdeel van je website, met dezelfde uitstraling.",
+    stat: "Reserveren",
+    label: "via de site zelf",
+    desc: "Nu opent er een apart GuestPlan-venster. Met Remesa zit de reserveerwidget in de pagina zelf, in jullie eigen huisstijl.",
     icon: icons.calendar,
   },
   {
-    stat: "Jouw",
-    label: "huisstijl",
-    desc: "Kleuren, lettertypen en stijl passen naadloos bij de rest van de site. Gasten merken geen overgang.",
-    icon: icons.home,
-  },
-  {
-    stat: "Jouw",
-    label: "naam op de mail",
-    desc: "Bevestigingsmails komen van Bij Wout, niet van een platform. Geen logo van een derde partij.",
-    icon: icons.shield,
-  },
-  {
-    stat: "Direct",
-    label: "contact met je gasten",
-    desc: "Geen externe partij tussen jou en je gasten. Reserveringen, gegevens, communicatie: alles van jullie.",
+    stat: "Zelfde",
+    label: "gastenbeheer",
+    desc: "Zelfde functionaliteit als GuestPlan. Maar dan bij ons in de prijs inbegrepen, geen extra upgrade nodig.",
     icon: icons.users,
   },
 ];
@@ -215,30 +201,6 @@ const possibilities = [
 /* ------------------------------------------------------------------ */
 
 export function PitchContent() {
-  /* Hide third-party widgets (GuestPlan, CMP) on the pitch page */
-  useEffect(() => {
-    const selectors = [
-      "[data-widget-id]",
-      "iframe[src*='guestplan']",
-      "[class*='vonzie-nexus']",
-      "[id*='vonzie-nexus']",
-    ];
-    const hideWidgets = () => {
-      selectors.forEach((sel) => {
-        document.querySelectorAll(sel).forEach((el) => {
-          if (el instanceof HTMLElement) {
-            el.style.visibility = "hidden";
-            el.style.pointerEvents = "none";
-          }
-        });
-      });
-    };
-    hideWidgets();
-    const observer = new MutationObserver(hideWidgets);
-    observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div>
       {/* ============================================================ */}
@@ -291,7 +253,7 @@ export function PitchContent() {
               maxWidth: "520px",
             }}
           >
-            Van Weebly-template naar een op maat gemaakte website die Bij Wout recht doet.
+            Hieronder laten we zien wat we gedaan hebben en wat erin zit.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.5}>
@@ -326,7 +288,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Wat we tegenkwamen
+              Wat er niet goed was
             </h2>
           </ScrollReveal>
 
@@ -422,7 +384,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Meer gasten, minder gedoe
+              Wat we opgelost hebben
             </h2>
           </ScrollReveal>
 
@@ -614,7 +576,7 @@ export function PitchContent() {
                 color: theme.accent,
               }}
             >
-              Een pakket
+              Wat zit erin
             </p>
             <h2
               className="text-center"
@@ -626,7 +588,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Alles inbegrepen
+              Jullie pakket
             </h2>
           </ScrollReveal>
 
@@ -785,7 +747,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-3)",
               }}
             >
-              Vonzie Reserveringen
+              Reserveerpagina met Remesa
             </h2>
             <p
               className="text-center mx-auto"
@@ -799,7 +761,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Dezelfde functionaliteit als GuestPlan, maar ingebouwd in jullie website. Geen iframe, geen extern merk. Gewoon Bij Wout.
+              Nu draait de reserveerpagina op GuestPlan. We kunnen die vervangen door een Remesa-widget die direct in de site zit.
             </p>
           </ScrollReveal>
 
@@ -896,9 +858,20 @@ export function PitchContent() {
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
-          <Button href="/" variant="secondary">
+          <a
+            href="/"
+            onClick={() => sessionStorage.setItem("bijwout-reveal", "1")}
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "var(--font-size-body-lg)",
+              color: theme.accent,
+              textDecoration: "none",
+              borderBottom: `1px solid`,
+              paddingBottom: "var(--space-1)",
+            }}
+          >
             Bekijk de website
-          </Button>
+          </a>
         </ScrollReveal>
         <ScrollReveal delay={0.3}>
           <p
