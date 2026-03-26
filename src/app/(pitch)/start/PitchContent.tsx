@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollReveal, StaggerReveal, StaggerItem } from "@/components/ui/ScrollReveal";
-import { CopperRule } from "@/components/ui/CopperRule";
 import ScoreRing from "./ScoreRing";
 
 /* ------------------------------------------------------------------ */
@@ -24,46 +23,41 @@ const theme = {
 
 const icons = {
   bolt: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
     </svg>
   ),
   search: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35" />
     </svg>
   ),
   shield: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   ),
   image: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="2" />
-      <circle cx="8.5" cy="8.5" r="1.5" />
+      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
       <path d="m21 15-5-5L5 21" />
     </svg>
   ),
   palette: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor" /><circle cx="17.5" cy="10.5" r="0.5" fill="currentColor" /><circle cx="8.5" cy="7.5" r="0.5" fill="currentColor" /><circle cx="6.5" cy="12.5" r="0.5" fill="currentColor" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="13.5" cy="6.5" r="1.5" fill="currentColor" /><circle cx="17.5" cy="10.5" r="1.5" fill="currentColor" /><circle cx="8.5" cy="7.5" r="1.5" fill="currentColor" /><circle cx="6.5" cy="12.5" r="1.5" fill="currentColor" />
       <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
     </svg>
   ),
   calendar: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
     </svg>
   ),
-  home: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  ),
   users: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   ),
@@ -265,7 +259,6 @@ export function PitchContent() {
         </ScrollReveal>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S2: PROBLEMS                                                  */}
@@ -296,23 +289,11 @@ export function PitchContent() {
             <div className="grid md:grid-cols-2 gap-[var(--space-4)]">
               {problems.map((item) => (
                 <StaggerItem key={item.label}>
-                  <div
-                    className="p-[var(--space-4)] h-full"
-                    style={{
-                      borderRadius: "var(--radius-sm)",
-                      border: `1px solid color-mix(in srgb, ${theme.textOnLight} 12%, transparent)`,
-                    }}
-                  >
+                  <div className="p-[var(--space-4)] h-full">
                     <div className="flex items-start gap-[var(--space-3)]">
                       <div
                         className="shrink-0 flex items-center justify-center"
-                        style={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: "var(--radius-sm)",
-                          backgroundColor: `color-mix(in srgb, ${theme.textOnLight} 8%, transparent)`,
-                          color: theme.highlight,
-                        }}
+                        style={{ width: 40, height: 40, color: theme.highlight }}
                       >
                         {item.icon}
                       </div>
@@ -361,7 +342,6 @@ export function PitchContent() {
         </div>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S3: SOLUTIONS                                                 */}
@@ -392,23 +372,11 @@ export function PitchContent() {
             <div className="grid md:grid-cols-2 gap-[var(--space-4)]">
               {solutions.map((item) => (
                 <StaggerItem key={item.label}>
-                  <div
-                    className="p-[var(--space-4)] h-full"
-                    style={{
-                      borderRadius: "var(--radius-sm)",
-                      border: `1px solid color-mix(in srgb, ${theme.textOnDark} 15%, transparent)`,
-                    }}
-                  >
+                  <div className="p-[var(--space-4)] h-full">
                     <div className="flex items-start gap-[var(--space-3)]">
                       <div
                         className="shrink-0 flex items-center justify-center"
-                        style={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: "var(--radius-sm)",
-                          backgroundColor: `color-mix(in srgb, ${theme.textOnDark} 10%, transparent)`,
-                          color: theme.accent,
-                        }}
+                        style={{ width: 40, height: 40, color: theme.accent }}
                       >
                         {item.icon}
                       </div>
@@ -457,7 +425,6 @@ export function PitchContent() {
         </div>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S4: SCORES                                                    */}
@@ -554,7 +521,6 @@ export function PitchContent() {
         </div>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S5: PACKAGE                                                   */}
@@ -596,13 +562,7 @@ export function PitchContent() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-4)]">
               {features.map((f) => (
                 <StaggerItem key={f.title}>
-                  <div
-                    className="flex items-start gap-[var(--space-3)] p-[var(--space-4)] h-full"
-                    style={{
-                      borderRadius: "var(--radius-sm)",
-                      border: `1px solid color-mix(in srgb, ${theme.textOnDark} 12%, transparent)`,
-                    }}
-                  >
+                  <div className="flex items-start gap-[var(--space-3)] p-[var(--space-4)] h-full">
                     <svg
                       className="shrink-0 mt-0.5"
                       width="20"
@@ -649,7 +609,6 @@ export function PitchContent() {
         </div>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S6: STATS                                                     */}
@@ -713,7 +672,6 @@ export function PitchContent() {
         </div>
       </section>
 
-      <CopperRule />
 
       {/* ============================================================ */}
       {/* S7: POSSIBILITIES (Vonzie Reserveringen)                      */}
@@ -769,23 +727,11 @@ export function PitchContent() {
             <div className="grid md:grid-cols-2 gap-[var(--space-4)]">
               {possibilities.map((item) => (
                 <StaggerItem key={item.label}>
-                  <div
-                    className="p-[var(--space-4)] h-full"
-                    style={{
-                      borderRadius: "var(--radius-sm)",
-                      border: `1px solid color-mix(in srgb, ${theme.textOnLight} 12%, transparent)`,
-                    }}
-                  >
+                  <div className="p-[var(--space-4)] h-full">
                     <div className="flex items-start gap-[var(--space-3)]">
                       <div
                         className="shrink-0 flex items-center justify-center"
-                        style={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: "var(--radius-sm)",
-                          backgroundColor: `color-mix(in srgb, ${theme.textOnLight} 8%, transparent)`,
-                          color: theme.accent,
-                        }}
+                        style={{ width: 40, height: 40, color: theme.accent }}
                       >
                         {item.icon}
                       </div>

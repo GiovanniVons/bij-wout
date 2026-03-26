@@ -32,7 +32,7 @@ export function HeroSection() {
               animate={ready ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              Lokaal genieten.
+              Eerlijk eten op het plein.
             </motion.h1>
             <motion.p
               className="text-body-lg !text-[var(--color-text-secondary)] max-w-[28em] mx-auto md:mx-0"
@@ -40,7 +40,7 @@ export function HeroSection() {
               animate={ready ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              Eetcafe op het plein in Moergestel
+              Kort seizoensmenu, wisselende craft bieren en een terras op het Sint Jansplein in Moergestel.
             </motion.p>
             <motion.div
               className="mt-[var(--space-5)] flex flex-col sm:flex-row gap-[var(--space-3)] md:justify-start justify-center"
