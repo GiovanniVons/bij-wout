@@ -73,11 +73,12 @@ const problems = [
     label: "op je telefoon",
     desc: "De site laadt langzaam op mobiel. Gasten die onderweg zoeken naar Bij Wout, haken af voordat de pagina geladen is.",
     icon: icons.bolt,
+    highlight: true,
   },
   {
-    stat: "Kale link",
-    label: "op WhatsApp",
-    desc: "Deel je de site via WhatsApp of Facebook? Geen foto, geen omschrijving. Gewoon een kale URL. Google weet ook niet precies wat jullie zijn.",
+    stat: "Onzichtbaar",
+    label: "in zoekresultaten",
+    desc: "Google toont je naam en een linkje. Geen openingstijden, geen type restaurant, geen foto in de zoekresultaten. AI-zoekmachines weten niet wat Bij Wout precies is.",
     icon: icons.search,
   },
   {
@@ -104,31 +105,32 @@ const solutions = [
   {
     stat: "Snel",
     label: "op elke telefoon",
-    desc: "De nieuwe site laadt in minder dan 2 seconden, ook op een oude telefoon.",
+    desc: "Gasten die onderweg zoeken laden de site in minder dan 2 seconden. Ook op een oude telefoon.",
     icon: icons.bolt,
+    highlight: true,
   },
   {
-    stat: "Vindbaar",
-    label: "overal",
-    desc: "Deel je de site op WhatsApp? Mooie kaart met foto. Zoekt iemand op Google of ChatGPT? Jullie komen naar boven.",
+    stat: "Zichtbaar",
+    label: "in Google en AI",
+    desc: "Google toont jullie openingstijden, adres en type restaurant direct in de zoekresultaten. ChatGPT en Siri weten precies wat Bij Wout is.",
     icon: icons.search,
   },
   {
     stat: "Cookiebanner",
     label: "geregeld",
-    desc: "Cookiebanner en privacybeleid zitten erin. Wordt automatisch bijgewerkt.",
+    desc: "Cookiebanner en privacybeleid zitten erin. Wordt automatisch bijgewerkt, jullie hoeven er niks voor te doen.",
     icon: icons.shield,
   },
   {
     stat: "77",
     label: "gerechten online",
-    desc: "Het hele menu staat er digitaal op. Gerechten, prijzen, vegetarische opties. Alles leesbaar op je telefoon.",
+    desc: "Het hele menu staat er digitaal in. Gasten filteren op categorie, zien prijzen, en hoeven niet in te zoomen.",
     icon: icons.image,
   },
   {
     stat: "Eigen",
     label: "uitstraling",
-    desc: "Eigen kleuren, eigen lettertypen, eigen sfeer. Dit is Bij Wout, geen template.",
+    desc: "Koper, hout, woud. Eigen kleuren, eigen lettertypen. Dit ziet er uit als Bij Wout, niet als een bouwpakket.",
     icon: icons.palette,
   },
 ];
@@ -170,9 +172,9 @@ const features = [
 
 const stats = [
   { value: "< 2s", label: "Laadtijd op mobiel" },
-  { value: "7", label: "Pagina's" },
+  { value: "92", label: "Lighthouse score (was 49)" },
   { value: "77", label: "Gerechten op de kaart" },
-  { value: "33", label: "Craft bieren" },
+  { value: "0", label: "Externe partijen met je data" },
 ];
 
 const possibilities = [
@@ -247,7 +249,7 @@ export function PitchContent() {
               maxWidth: "520px",
             }}
           >
-            Hieronder laten we zien wat we gedaan hebben en wat erin zit.
+            Van Weebly-template naar een website die Bij Wout eer aandoet.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.5}>
@@ -281,13 +283,66 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Wat er niet goed was
+              Wat we tegenkwamen
             </h2>
           </ScrollReveal>
 
           <StaggerReveal stagger={0.1}>
+            {/* Highlighted lead card -- full width */}
+            {problems.filter((item) => item.highlight).map((item) => (
+              <StaggerItem key={item.label}>
+                <div className="p-[var(--space-5)] mb-[var(--space-4)]">
+                  <div className="flex items-start gap-[var(--space-4)]">
+                    <div
+                      className="shrink-0 flex items-center justify-center"
+                      style={{ width: 48, height: 48, color: theme.highlight }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="flex items-baseline gap-[var(--space-2)] mb-[var(--space-2)]">
+                        <span
+                          style={{
+                            fontFamily: "var(--font-display)",
+                            fontSize: "var(--font-size-h2)",
+                            fontWeight: 600,
+                            color: theme.highlight,
+                          }}
+                        >
+                          {item.stat}
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: "var(--font-accent)",
+                            fontSize: "var(--font-size-body)",
+                            color: theme.textOnLight,
+                            opacity: 0.6,
+                          }}
+                        >
+                          {item.label}
+                        </span>
+                      </div>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "var(--font-size-body)",
+                          lineHeight: "var(--line-height-relaxed)",
+                          color: theme.textOnLight,
+                          opacity: 0.75,
+                          margin: 0,
+                          maxWidth: "36em",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+            {/* Remaining cards -- 2-column grid */}
             <div className="grid md:grid-cols-2 gap-[var(--space-4)]">
-              {problems.map((item) => (
+              {problems.filter((item) => !item.highlight).map((item) => (
                 <StaggerItem key={item.label}>
                   <div className="p-[var(--space-4)] h-full">
                     <div className="flex items-start gap-[var(--space-3)]">
@@ -312,7 +367,7 @@ export function PitchContent() {
                           <span
                             style={{
                               fontFamily: "var(--font-accent)",
-                              fontSize: "var(--font-size-body-sm)",
+                              fontSize: "var(--font-size-body)",
                               color: theme.textOnLight,
                               opacity: 0.6,
                             }}
@@ -323,7 +378,7 @@ export function PitchContent() {
                         <p
                           style={{
                             fontFamily: "var(--font-body)",
-                            fontSize: "var(--font-size-body-sm)",
+                            fontSize: "var(--font-size-body)",
                             lineHeight: "var(--line-height-relaxed)",
                             color: theme.textOnLight,
                             opacity: 0.75,
@@ -364,13 +419,66 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Wat we opgelost hebben
+              Meer gasten, minder gedoe
             </h2>
           </ScrollReveal>
 
           <StaggerReveal stagger={0.1}>
+            {/* Highlighted lead card -- full width */}
+            {solutions.filter((item) => item.highlight).map((item) => (
+              <StaggerItem key={item.label}>
+                <div className="p-[var(--space-5)] mb-[var(--space-4)]">
+                  <div className="flex items-start gap-[var(--space-4)]">
+                    <div
+                      className="shrink-0 flex items-center justify-center"
+                      style={{ width: 48, height: 48, color: theme.accent }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="flex items-baseline gap-[var(--space-2)] mb-[var(--space-2)]">
+                        <span
+                          style={{
+                            fontFamily: "var(--font-display)",
+                            fontSize: "var(--font-size-h2)",
+                            fontWeight: 600,
+                            color: theme.textOnDark,
+                          }}
+                        >
+                          {item.stat}
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: "var(--font-accent)",
+                            fontSize: "var(--font-size-body)",
+                            color: theme.textOnDark,
+                            opacity: 0.5,
+                          }}
+                        >
+                          {item.label}
+                        </span>
+                      </div>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "var(--font-size-body)",
+                          lineHeight: "var(--line-height-relaxed)",
+                          color: theme.textOnDark,
+                          opacity: 0.7,
+                          margin: 0,
+                          maxWidth: "36em",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+            {/* Remaining cards -- 2-column grid */}
             <div className="grid md:grid-cols-2 gap-[var(--space-4)]">
-              {solutions.map((item) => (
+              {solutions.filter((item) => !item.highlight).map((item) => (
                 <StaggerItem key={item.label}>
                   <div className="p-[var(--space-4)] h-full">
                     <div className="flex items-start gap-[var(--space-3)]">
@@ -395,7 +503,7 @@ export function PitchContent() {
                           <span
                             style={{
                               fontFamily: "var(--font-accent)",
-                              fontSize: "var(--font-size-body-sm)",
+                              fontSize: "var(--font-size-body)",
                               color: theme.textOnDark,
                               opacity: 0.5,
                             }}
@@ -406,7 +514,7 @@ export function PitchContent() {
                         <p
                           style={{
                             fontFamily: "var(--font-body)",
-                            fontSize: "var(--font-size-body-sm)",
+                            fontSize: "var(--font-size-body)",
                             lineHeight: "var(--line-height-relaxed)",
                             color: theme.textOnDark,
                             opacity: 0.7,
@@ -542,7 +650,7 @@ export function PitchContent() {
                 color: theme.accent,
               }}
             >
-              Wat zit erin
+              Eén pakket
             </p>
             <h2
               className="text-center"
@@ -554,7 +662,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Jullie pakket
+              Alles inbegrepen
             </h2>
           </ScrollReveal>
 
@@ -655,7 +763,7 @@ export function PitchContent() {
                     <div
                       style={{
                         fontFamily: "var(--font-accent)",
-                        fontSize: "var(--font-size-caption)",
+                        fontSize: "var(--font-size-body-sm)",
                         letterSpacing: "var(--letter-spacing-wide)",
                         color: theme.textOnLight,
                         opacity: 0.5,
@@ -693,7 +801,7 @@ export function PitchContent() {
                 color: theme.highlight,
               }}
             >
-              Wat er nog kan
+              Klaar wanneer jullie willen
             </p>
             <h2
               className="text-center"
@@ -705,7 +813,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-3)",
               }}
             >
-              Reserveerpagina met Remesa
+              Reserveren zonder omweg
             </h2>
             <p
               className="text-center mx-auto"
@@ -719,7 +827,7 @@ export function PitchContent() {
                 marginBottom: "var(--space-8)",
               }}
             >
-              Nu draait de reserveerpagina op GuestPlan. We kunnen die vervangen door een Remesa-widget die direct in de site zit.
+              De reserveerpagina draait nu op GuestPlan. Wij kunnen die vervangen door een widget die direct in de site zit, in jullie eigen huisstijl.
             </p>
           </ScrollReveal>
 
@@ -750,7 +858,7 @@ export function PitchContent() {
                           <span
                             style={{
                               fontFamily: "var(--font-accent)",
-                              fontSize: "var(--font-size-body-sm)",
+                              fontSize: "var(--font-size-body)",
                               color: theme.textOnLight,
                               opacity: 0.6,
                             }}
@@ -761,7 +869,7 @@ export function PitchContent() {
                         <p
                           style={{
                             fontFamily: "var(--font-body)",
-                            fontSize: "var(--font-size-body-sm)",
+                            fontSize: "var(--font-size-body)",
                             lineHeight: "var(--line-height-relaxed)",
                             color: theme.textOnLight,
                             opacity: 0.75,
