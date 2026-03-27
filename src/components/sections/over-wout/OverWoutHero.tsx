@@ -1,9 +1,16 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export function OverWoutHero() {
   const prefersReducedMotion = useReducedMotion();
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setImgReady(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section data-theme="base" className="bg-[var(--color-bg)] pt-[var(--section-space-lg)] pb-[var(--section-space-md)]">
@@ -13,7 +20,7 @@ export function OverWoutHero() {
           <motion.div
             className="md:-ml-[var(--container-padding-x)] overflow-hidden"
             initial={prefersReducedMotion ? false : { clipPath: "inset(0 0 0 100%)" }}
-            animate={{ clipPath: "inset(0 0 0 0)" }}
+            animate={imgReady ? { clipPath: "inset(0 0 0 0)" } : false}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             <div
@@ -26,6 +33,7 @@ export function OverWoutHero() {
                 style={{ aspectRatio: "16/10" }}
                 loading="eager"
                 decoding="async"
+                onLoad={() => setImgReady(true)}
               />
             </div>
           </motion.div>

@@ -7,15 +7,22 @@ import { Button } from "@/components/ui/Button";
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
   const [ready, setReady] = useState(false);
+  const [imgReady, setImgReady] = useState(false);
 
   useEffect(() => {
     if (document.documentElement.dataset.reveal === "1") {
-      // Wait for curtain to finish (600ms hold + 900ms slide)
       const timer = setTimeout(() => setReady(true), 1500);
       return () => clearTimeout(timer);
     }
     setReady(true);
   }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setImgReady(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
+
+  const canAnimate = ready && imgReady;
 
   return (
     <section
@@ -29,7 +36,7 @@ export function HeroSection() {
             <motion.h1
               className="text-display !mb-[var(--space-4)]"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-              animate={ready ? { opacity: 1, y: 0 } : false}
+              animate={canAnimate ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               Eerlijk eten op het plein.
@@ -37,7 +44,7 @@ export function HeroSection() {
             <motion.p
               className="text-body-lg !text-[var(--color-text-secondary)] max-w-[28em] mx-auto md:mx-0"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
-              animate={ready ? { opacity: 1, y: 0 } : false}
+              animate={canAnimate ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               Kort seizoensmenu, wisselende craft bieren en een terras op het Sint Jansplein in Moergestel.
@@ -45,7 +52,7 @@ export function HeroSection() {
             <motion.div
               className="mt-[var(--space-5)] flex flex-col sm:flex-row gap-[var(--space-3)] md:justify-start justify-center"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-              animate={ready ? { opacity: 1, y: 0 } : false}
+              animate={canAnimate ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
               <Button href="/menu" variant="primary">Bekijk de kaart</Button>
@@ -57,7 +64,7 @@ export function HeroSection() {
           <motion.div
             className="order-1 md:order-2 md:-mr-[var(--container-padding-x)] overflow-hidden"
             initial={prefersReducedMotion ? false : { clipPath: "inset(0 0 100% 0)" }}
-            animate={ready ? { clipPath: "inset(0 0 0 0)" } : false}
+            animate={canAnimate ? { clipPath: "inset(0 0 0 0)" } : false}
             transition={{ duration: 1.4, delay: 0, ease: [0.25, 0.8, 0.25, 1] }}
           >
             <div className="md:rounded-l-[var(--radius-md)] md:rounded-r-none rounded-[var(--radius-md)] overflow-hidden h-full md:min-h-[85vh]"
@@ -76,6 +83,7 @@ export function HeroSection() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  onLoad={() => setImgReady(true)}
                 />
               </picture>
             </div>

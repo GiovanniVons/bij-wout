@@ -1,10 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { CopperRule } from "@/components/ui/CopperRule";
 
 export function MenuHero() {
   const prefersReducedMotion = useReducedMotion();
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setImgReady(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section
@@ -17,7 +24,7 @@ export function MenuHero() {
           <motion.div
             className="md:-ml-[var(--container-padding-x)] overflow-hidden"
             initial={prefersReducedMotion ? false : { clipPath: "inset(0 0 0 100%)" }}
-            animate={{ clipPath: "inset(0 0 0 0)" }}
+            animate={imgReady ? { clipPath: "inset(0 0 0 0)" } : false}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="md:rounded-r-[var(--radius-md)] md:rounded-l-none rounded-[var(--radius-md)] overflow-hidden h-full">
@@ -28,6 +35,7 @@ export function MenuHero() {
                 style={{ aspectRatio: "4/5" }}
                 loading="eager"
                 decoding="async"
+                onLoad={() => setImgReady(true)}
               />
             </div>
           </motion.div>

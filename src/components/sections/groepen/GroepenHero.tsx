@@ -1,9 +1,16 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export function GroepenHero() {
   const prefersReducedMotion = useReducedMotion();
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setImgReady(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section
@@ -35,7 +42,7 @@ export function GroepenHero() {
           <motion.div
             className="order-1 md:order-2 md:-mr-[var(--container-padding-x)] overflow-hidden"
             initial={prefersReducedMotion ? false : { clipPath: "inset(0 100% 0 0)" }}
-            animate={{ clipPath: "inset(0 0 0 0)" }}
+            animate={imgReady ? { clipPath: "inset(0 0 0 0)" } : false}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="md:rounded-l-[var(--radius-md)] md:rounded-r-none rounded-[var(--radius-md)] overflow-hidden h-full">
@@ -46,6 +53,7 @@ export function GroepenHero() {
                 style={{ aspectRatio: "4/5" }}
                 loading="eager"
                 decoding="async"
+                onLoad={() => setImgReady(true)}
               />
             </div>
           </motion.div>

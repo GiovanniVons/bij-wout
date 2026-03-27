@@ -1,10 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 export function MaandagHero() {
   const prefersReducedMotion = useReducedMotion();
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setImgReady(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section data-theme="warm" className="bg-[var(--color-bg)] pt-[var(--section-space-lg)] pb-[var(--section-space-md)]">
@@ -43,7 +50,7 @@ export function MaandagHero() {
               className="overflow-hidden"
               style={{ borderRadius: "var(--radius-md)" }}
               initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={imgReady ? { opacity: 1, scale: 1 } : false}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
               <img
@@ -51,6 +58,7 @@ export function MaandagHero() {
                 alt="Drie-gangenmenu bij Wout"
                 className="w-full object-cover object-bottom"
                 style={{ aspectRatio: "4/3" }}
+                onLoad={() => setImgReady(true)}
               />
             </motion.div>
             {/* Price badge overlaid on image */}
