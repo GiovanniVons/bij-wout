@@ -84,7 +84,7 @@ const problems = [
   {
     stat: "Geen",
     label: "cookiebanner",
-    desc: "Er is geen cookiebanner en geen privacybeleid. Dat moet eigenlijk wel van de wet.",
+    desc: "Er is geen cookiebanner en geen privacybeleid. Dat is wettelijk verplicht.",
     icon: icons.shield,
   },
   {
@@ -130,7 +130,7 @@ const solutions = [
   {
     stat: "Eigen",
     label: "uitstraling",
-    desc: "Koper, hout, woud. Eigen kleuren, eigen lettertypen. Dit ziet er uit als Bij Wout, niet als een bouwpakket.",
+    desc: "Koper, hout, woud. Eigen kleuren, eigen lettertypen. Dit ziet eruit als Bij Wout, niet als een bouwpakket.",
     icon: icons.palette,
   },
 ];
@@ -140,7 +140,6 @@ const scores = [
   { label: "Snelheid", before: 49, after: 92 },
   { label: "Toegankelijkheid", before: 94, after: 96 },
   { label: "Techniek", before: 69, after: 100 },
-  { label: "Vindbaarheid", before: 100, after: 100 },
 ];
 
 const features = [
@@ -162,11 +161,11 @@ const features = [
   },
   {
     title: "Vindbaar in Google",
-    desc: "Alles klaarstaan zodat Google en AI-zoekmachines jullie makkelijk vinden.",
+    desc: "Alles staat klaar zodat Google en AI-zoekmachines jullie makkelijk vinden.",
   },
   {
     title: "Craft bier database",
-    desc: "33 bieren in 6 categorieen. Wisseltaps uitgelicht.",
+    desc: "33 bieren in 6 categorieën. Wisseltaps uitgelicht.",
   },
 ];
 
@@ -291,7 +290,14 @@ export function PitchContent() {
             {/* Highlighted lead card -- full width */}
             {problems.filter((item) => item.highlight).map((item) => (
               <StaggerItem key={item.label}>
-                <div className="p-[var(--space-5)] mb-[var(--space-4)]">
+                <div
+                  className="p-[var(--space-5)] mb-[var(--space-4)]"
+                  style={{
+                    backgroundColor: "var(--color-kalk)",
+                    borderLeft: "3px solid var(--color-koper)",
+                    borderRadius: "var(--radius-md)",
+                  }}
+                >
                   <div className="flex items-start gap-[var(--space-4)]">
                     <div
                       className="shrink-0 flex items-center justify-center"
@@ -427,7 +433,14 @@ export function PitchContent() {
             {/* Highlighted lead card -- full width */}
             {solutions.filter((item) => item.highlight).map((item) => (
               <StaggerItem key={item.label}>
-                <div className="p-[var(--space-5)] mb-[var(--space-4)]">
+                <div
+                  className="p-[var(--space-5)] mb-[var(--space-4)]"
+                  style={{
+                    backgroundColor: "var(--color-kalk-o8)",
+                    borderLeft: "3px solid var(--color-koper)",
+                    borderRadius: "var(--radius-md)",
+                  }}
+                >
                   <div className="flex items-start gap-[var(--space-4)]">
                     <div
                       className="shrink-0 flex items-center justify-center"
@@ -571,7 +584,7 @@ export function PitchContent() {
           </ScrollReveal>
 
           <StaggerReveal stagger={0.1}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--space-6)]">
+            <div className="grid grid-cols-3 gap-[var(--space-6)]">
               {scores.map((s) => (
                 <StaggerItem key={s.label}>
                   <div className="text-center">
