@@ -33,7 +33,7 @@ const caveat = localFont({
   ],
   variable: "--font-accent-loaded",
   display: "swap",
-  preload: false,
+  preload: true,
   adjustFontFallback: false,
 });
 

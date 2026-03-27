@@ -20,12 +20,12 @@ export function HeroSection() {
   return (
     <section
       data-theme="base"
-      className="bg-[var(--color-bg)] min-h-[85vh] md:min-h-[85vh] pt-[var(--header-height)] md:pt-0"
+      className="bg-[var(--color-bg)] md:min-h-[85vh] pt-[var(--header-height)] md:pt-0"
     >
       <div className="container-wide">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-[var(--space-6)] min-h-[85vh] md:min-h-[85vh]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-[var(--space-6)] md:min-h-[85vh]">
           {/* Text column */}
-          <div className="flex flex-col justify-center pt-[var(--section-space-lg)] pb-[var(--section-space-md)] order-2 md:order-1 text-center md:text-left">
+          <div className="flex flex-col justify-center pt-[var(--section-space-sm)] md:pt-[var(--section-space-lg)] pb-[var(--section-space-md)] order-2 md:order-1 text-center md:text-left">
             <motion.h1
               className="text-display !mb-[var(--space-4)]"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}

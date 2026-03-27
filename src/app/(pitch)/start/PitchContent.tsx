@@ -584,11 +584,12 @@ export function PitchContent() {
           </ScrollReveal>
 
           <StaggerReveal stagger={0.1}>
-            <div className="grid grid-cols-3 gap-[var(--space-6)]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[var(--space-6)]">
               {scores.map((s) => (
                 <StaggerItem key={s.label}>
-                  <div className="text-center">
+                  <div className="flex sm:flex-col items-center sm:text-center gap-[var(--space-4)] sm:gap-0">
                     <p
+                      className="w-28 sm:w-auto text-right sm:text-center shrink-0"
                       style={{
                         fontFamily: "var(--font-accent)",
                         fontSize: "var(--font-size-caption)",
@@ -596,12 +597,12 @@ export function PitchContent() {
                         textTransform: "uppercase",
                         color: theme.textOnLight,
                         opacity: 0.5,
-                        marginBottom: "var(--space-3)",
+                        marginBottom: "0",
                       }}
                     >
                       {s.label}
                     </p>
-                    <div className="flex items-center justify-center gap-[var(--space-2)]">
+                    <div className="flex items-center gap-[var(--space-2)] sm:mt-[var(--space-3)]">
                       <div style={{ opacity: 0.4 }}>
                         <ScoreRing value={s.before} size={72} color={theme.textOnLight} />
                       </div>
